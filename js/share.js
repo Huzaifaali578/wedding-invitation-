@@ -59,13 +59,16 @@
     });
   }
 
+  // RSVP Target Phone Number (Nisreen Ben)
+  const RSVP_PHONE = '919890504752';
+
   if (btnDeclineWhatsapp) {
     btnDeclineWhatsapp.addEventListener('click', () => {
       const text = encodeURIComponent(
         `🌙 *Wedding Greetings for Husain & Fatema*\n\n` +
         `Warmest congratulations to both families on this blessed union. Regretfully I may not be able to attend in person, but my heartfelt prayers and best wishes are with the couple!`
       );
-      window.open(`https://wa.me/?text=${text}`, '_blank', 'noopener,noreferrer');
+      window.open(`https://wa.me/${RSVP_PHONE}?text=${text}`, '_blank', 'noopener,noreferrer');
     });
   }
 
@@ -98,8 +101,8 @@
         `_Sent via wedding invitation_`
       );
 
-      // Open WhatsApp
-      window.open(`https://wa.me/?text=${msg}`, '_blank', 'noopener,noreferrer');
+      // Open WhatsApp directly to +91 98905 04752
+      window.open(`https://wa.me/${RSVP_PHONE}?text=${msg}`, '_blank', 'noopener,noreferrer');
 
       // Update UI to accepted state
       rsvpForm.classList.remove('show');
