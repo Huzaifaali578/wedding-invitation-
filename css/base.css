@@ -1,0 +1,58 @@
+/* ============================================
+   BASE — Minimal Reset & Utilities
+   ============================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  color: var(--text-primary);
+  background: var(--ivory);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+img, video { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; border: none; background: none; font: inherit; color: inherit; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+input, textarea { font: inherit; font-size: 16px; color: inherit; border: none; outline: none; background: none; -webkit-appearance: none; appearance: none; }
+ul { list-style: none; }
+
+::selection { background: var(--antique-gold); color: var(--ivory); }
+
+/* Minimal scrollbar */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(201, 168, 76, 0.35); border-radius: 3px; }
+html { scrollbar-width: thin; scrollbar-color: rgba(201, 168, 76, 0.35) transparent; }
+
+:focus-visible { outline: 2px solid var(--antique-gold); outline-offset: 4px; border-radius: 2px; }
+
+/* ===== Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  #particles, .bg-glow { display: none !important; }
+  .anim-hero { opacity: 1 !important; transform: none !important; filter: none !important; }
+}
+
+/* ===== Safe Areas ===== */
+@supports (padding: env(safe-area-inset-top)) {
+  .scene-hero { padding-top: env(safe-area-inset-top); }
+  body { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
+  .nav-toggle { top: calc(16px + env(safe-area-inset-top)); }
+}

@@ -1,0 +1,634 @@
+/* ============================================
+   SECTIONS — Each Scene is a Chapter
+   Cinematic visual journey, not a card layout.
+   ============================================ */
+
+/* ===== Scene Base ===== */
+.scene {
+  position: relative;
+  z-index: var(--z-content);
+  padding: var(--section-pad) var(--px);
+}
+
+.scene-content {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* =========================================
+   SCENE 1: HERO
+   Full viewport cinematic opening.
+   Entire viewport IS the invitation.
+   Negative space, layered depth, no card.
+   ========================================= */
+.scene-hero {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl) var(--px);
+  background: var(--ivory);
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: var(--z-content);
+  text-align: center;
+  width: 100%;
+  max-width: var(--max-w);
+}
+
+/* Bismillah */
+.hero-bismillah {
+  font-family: var(--font-arabic);
+  font-size: clamp(1.4rem, 5.5vw, 2.2rem);
+  color: var(--text-gold);
+  direction: rtl;
+  line-height: var(--lh-relaxed);
+  margin-bottom: var(--space-md);
+}
+
+/* Ornamental flourish between bismillah and content */
+.hero-flourish {
+  margin-bottom: var(--space-lg);
+  line-height: 0;
+}
+
+.hero-flourish svg {
+  width: clamp(140px, 50vw, 240px);
+  height: auto;
+}
+
+/* Label */
+.hero-label {
+  font-family: var(--font-body);
+  font-size: var(--fs-label);
+  color: var(--text-muted);
+  letter-spacing: var(--ls-ultra);
+  text-transform: uppercase;
+  margin-bottom: var(--space-lg);
+}
+
+/* Names — The primary visual focus */
+.hero-names-wrap {
+  margin-bottom: var(--space-md);
+}
+
+.hero-names {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 3.5vw, 20px);
+  flex-wrap: wrap;
+}
+
+.hero-name-ar {
+  font-family: var(--font-arabic);
+  font-size: var(--fs-hero-ar);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  direction: rtl;
+}
+
+.hero-amp {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 6vw, 2.5rem);
+  color: var(--antique-gold);
+  font-style: italic;
+  font-weight: 300;
+  opacity: 0.6;
+}
+
+.hero-names-en {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  margin-top: 4px;
+}
+
+.hero-names-en span {
+  font-family: var(--font-display);
+  font-size: clamp(0.9rem, 3.5vw, 1.3rem);
+  color: var(--text-secondary);
+  letter-spacing: var(--ls-wide);
+  font-weight: 400;
+}
+
+.hero-amp-en {
+  color: var(--antique-gold) !important;
+  font-style: italic;
+  opacity: 0.5;
+}
+
+/* Date & Info */
+.hero-date {
+  font-family: var(--font-display);
+  font-size: var(--fs-subtitle);
+  color: var(--text-secondary);
+  letter-spacing: var(--ls-wide);
+  margin-bottom: 4px;
+  font-weight: 400;
+  margin-top: var(--space-lg);
+}
+
+.hero-info {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  letter-spacing: var(--ls-normal);
+  margin-bottom: var(--space-2xl);
+}
+
+/* Scroll indicator */
+.hero-scroll {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-faint);
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+.hero-scroll svg {
+  animation: bounceDown 2.5s ease-in-out infinite;
+}
+
+/* =========================================
+   SCENE 2: INVITATION
+   Traditional text revealed with scroll.
+   Parchment background for contrast.
+   ========================================= */
+.scene-invitation {
+  background: var(--parchment);
+}
+
+.invitation-arabic {
+  direction: rtl;
+  text-align: right;
+  font-family: var(--font-arabic);
+  line-height: var(--lh-arabic);
+}
+
+.inv-paragraph {
+  font-size: var(--fs-body-ar);
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.inv-quote {
+  font-size: var(--fs-body-ar-lg);
+  color: var(--text-primary);
+  font-weight: 700;
+  text-align: center;
+  direction: rtl;
+  padding: var(--space-md) 0;
+  margin-bottom: var(--space-md);
+}
+
+.inv-calligraphy {
+  font-size: clamp(1.4rem, 5vw, 2rem);
+  color: var(--gold-dark);
+  font-weight: 700;
+  text-align: center;
+  direction: rtl;
+  padding: var(--space-lg) var(--space-sm);
+  border-top: 1px solid var(--gold-muted);
+  border-bottom: 1px solid var(--gold-muted);
+  margin: var(--space-lg) 0;
+  line-height: var(--lh-relaxed);
+}
+
+.inv-dua {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  text-align: center;
+  direction: rtl;
+  margin-bottom: var(--space-lg);
+}
+
+.inv-body {
+  font-size: var(--fs-body-ar);
+  color: var(--text-secondary);
+  text-align: center;
+  direction: rtl;
+  margin-bottom: var(--space-sm);
+  line-height: var(--lh-arabic);
+}
+
+/* =========================================
+   SCENE 3: THE COUPLE
+   Editorial, staggered, romantic.
+   Typography and negative space, no boxes.
+   ========================================= */
+.scene-couple {
+  background: var(--ivory);
+}
+
+.couple-block {
+  margin-bottom: var(--space-md);
+  text-align: center;
+}
+
+.couple-label {
+  font-family: var(--font-arabic);
+  font-size: var(--fs-body-ar);
+  color: var(--text-muted);
+  direction: rtl;
+  margin-bottom: 4px;
+}
+
+.couple-name-ar {
+  font-family: var(--font-arabic);
+  font-size: var(--fs-hero-ar);
+  font-weight: 700;
+  direction: rtl;
+  line-height: var(--lh-tight);
+  margin-bottom: 4px;
+}
+
+.couple-name-en {
+  font-family: var(--font-display);
+  font-size: var(--fs-subtitle);
+  color: var(--text-secondary);
+  letter-spacing: var(--ls-wide);
+  font-weight: 400;
+}
+
+/* Connector between names — vertical ornament */
+.couple-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  margin: var(--space-lg) 0;
+}
+
+.couple-connector-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(180deg, transparent, var(--antique-gold), transparent);
+}
+
+.couple-connector-text {
+  font-family: var(--font-arabic);
+  font-size: var(--fs-body-ar);
+  color: var(--text-gold);
+  direction: rtl;
+}
+
+/* Parents */
+.couple-parents {
+  font-family: var(--font-arabic);
+  font-size: var(--fs-body-ar);
+  color: var(--text-muted);
+  direction: rtl;
+  text-align: center;
+  line-height: var(--lh-arabic);
+  margin-top: var(--space-lg);
+}
+
+/* Nikah text */
+.couple-nikah {
+  font-family: var(--font-arabic);
+  font-size: var(--fs-body-ar);
+  color: var(--text-secondary);
+  direction: rtl;
+  text-align: center;
+  line-height: var(--lh-arabic);
+  margin-top: var(--space-lg);
+  padding: var(--space-lg) var(--space-sm);
+  border-top: 1px solid var(--gold-muted);
+  border-bottom: 1px solid var(--gold-muted);
+}
+
+/* =========================================
+   SCENE 4: DETAILS
+   Pure typography composition.
+   No cards, no boxes. Just type + space.
+   ========================================= */
+.scene-details {
+  background: var(--parchment);
+}
+
+.details-composition {
+  text-align: center;
+}
+
+.detail-day-number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-detail-num);
+  font-weight: 700;
+  color: var(--antique-gold);
+  line-height: var(--lh-none);
+  letter-spacing: -0.02em;
+}
+
+.detail-month {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--fs-subtitle);
+  color: var(--text-secondary);
+  letter-spacing: var(--ls-ultra);
+  text-transform: uppercase;
+  margin-top: var(--space-xs);
+}
+
+.detail-year {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-subtitle);
+  color: var(--text-secondary);
+  letter-spacing: var(--ls-wide);
+  margin-bottom: var(--space-xs);
+}
+
+.detail-hijri {
+  display: block;
+  font-family: var(--font-arabic);
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  direction: rtl;
+}
+
+.detail-divider {
+  height: 1px;
+  max-width: 80px;
+  margin: var(--space-lg) auto;
+  background: linear-gradient(90deg, transparent, var(--antique-gold), transparent);
+}
+
+.detail-text {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--text-secondary);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  margin-bottom: var(--space-xs);
+}
+
+.detail-venue-name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-scene-title);
+  color: var(--text-primary);
+  letter-spacing: var(--ls-normal);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.detail-venue-city {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--fs-subtitle);
+  color: var(--text-muted);
+  letter-spacing: var(--ls-wide);
+}
+
+/* =========================================
+   SCENE 5: COUNTDOWN
+   Elegant typographic numbers.
+   No dashboard widgets or boxes.
+   ========================================= */
+.scene-countdown {
+  background: var(--ivory);
+}
+
+.countdown-label-text {
+  font-family: var(--font-body);
+  font-size: var(--fs-label);
+  color: var(--text-muted);
+  letter-spacing: var(--ls-ultra);
+  text-transform: uppercase;
+  margin-bottom: var(--space-xl);
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-sm);
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.countdown-unit { text-align: center; }
+
+.countdown-number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-countdown-num);
+  font-weight: 600;
+  color: var(--antique-gold);
+  line-height: var(--lh-none);
+  margin-bottom: 6px;
+}
+
+.countdown-unit-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--fs-countdown-label);
+  color: var(--text-faint);
+  letter-spacing: var(--ls-ultra);
+  text-transform: uppercase;
+}
+
+.countdown-msg {
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: var(--space-lg);
+}
+
+/* =========================================
+   SCENE 6: VIDEO
+   Cinematic reveal — title first, then video.
+   The video is a centerpiece, not a widget.
+   ========================================= */
+.scene-video {
+  background: var(--parchment-dark);
+}
+
+.video-intro-text {
+  font-family: var(--font-display);
+  font-size: var(--fs-scene-title);
+  color: var(--text-gold);
+  font-style: italic;
+  font-weight: 400;
+  line-height: var(--lh-snug);
+  margin-bottom: var(--space-xl);
+}
+
+/* =========================================
+   SCENE 7: VENUE
+   Beautiful location reveal, not a generic card.
+   ========================================= */
+.scene-venue {
+  background: var(--ivory);
+}
+
+.venue-name {
+  font-family: var(--font-display);
+  font-size: var(--fs-scene-title);
+  color: var(--text-primary);
+  letter-spacing: var(--ls-normal);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.venue-address {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--text-muted);
+  line-height: var(--lh-relaxed);
+  margin-bottom: var(--space-md);
+}
+
+/* =========================================
+   SCENE 8: RSVP
+   Graceful question, not a form.
+   Progressive disclosure on answer.
+   ========================================= */
+.scene-rsvp {
+  background: var(--parchment);
+}
+
+.rsvp-question {
+  font-family: var(--font-display);
+  font-size: var(--fs-scene-title);
+  color: var(--text-primary);
+  font-weight: 400;
+  font-style: italic;
+  line-height: var(--lh-snug);
+  margin-bottom: var(--space-xl);
+}
+
+.rsvp-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.rsvp-buttons .btn { width: 100%; max-width: 300px; }
+
+/* Form — hidden until "Yes" */
+.rsvp-form {
+  display: none;
+  max-width: 340px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.rsvp-form.show {
+  display: block;
+  animation: fadeIn 0.6s var(--ease-out);
+}
+
+.rsvp-form .form-group { margin-bottom: var(--space-sm); }
+
+/* Success / Decline messages */
+.rsvp-response {
+  display: none;
+  text-align: center;
+  padding: var(--space-lg) 0;
+}
+
+.rsvp-response.show {
+  display: block;
+  animation: fadeIn 0.6s var(--ease-out);
+}
+
+.rsvp-response-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-sm);
+}
+
+/* =========================================
+   SCENE 9: CLOSING
+   Emotional farewell. Cinematic ending.
+   Slow reveals, final names, blessing.
+   ========================================= */
+.scene-closing {
+  background: var(--ivory);
+  padding-bottom: var(--space-3xl);
+}
+
+.closing-blessing {
+  font-family: var(--font-display);
+  font-size: var(--fs-subtitle);
+  color: var(--text-secondary);
+  font-style: italic;
+  font-weight: 400;
+  line-height: var(--lh-snug);
+  margin-bottom: var(--space-lg);
+}
+
+.closing-names {
+  font-family: var(--font-display);
+  font-size: var(--fs-scene-title);
+  color: var(--text-gold);
+  letter-spacing: var(--ls-wide);
+  font-weight: 400;
+  margin-bottom: var(--space-sm);
+}
+
+.closing-date {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--text-muted);
+  letter-spacing: var(--ls-wide);
+  margin-bottom: 4px;
+}
+
+.closing-venue {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: var(--text-faint);
+  letter-spacing: var(--ls-normal);
+  margin-bottom: var(--space-xl);
+}
+
+.closing-wassalam {
+  font-family: var(--font-arabic);
+  font-size: var(--fs-body-ar-lg);
+  color: var(--antique-gold);
+  direction: rtl;
+}
+
+/* Share area */
+.closing-share {
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--gold-muted);
+  margin-top: var(--space-xl);
+}
+
+.closing-share-text {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  margin-bottom: var(--space-md);
+}
+
+.closing-share-btns {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.closing-credit {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  margin-top: var(--space-2xl);
+  opacity: 0.4;
+}

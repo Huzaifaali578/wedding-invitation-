@@ -1,0 +1,95 @@
+/* ============================================
+   DESIGN TOKENS — Cinematic Wedding Experience
+   Husain & Fatema
+   ============================================ */
+
+:root {
+  /* ===== The Palette ===== */
+  --ivory: #FAF6ED;
+  --ivory-rgb: 250, 246, 237;
+  --parchment: #F3ECDF;
+  --parchment-dark: #E8DFCF;
+  --cream: #FBF8F1;
+  --warm-white: #FEFCF7;
+
+  /* Gold Spectrum */
+  --antique-gold: #C9A84C;
+  --gold-light: #E2C878;
+  --gold-dark: #A88B35;
+  --gold-muted: rgba(201, 168, 76, 0.15);
+  --gold-glow: rgba(201, 168, 76, 0.06);
+
+  /* Warm Tones */
+  --copper: #B87D5C;
+  --copper-light: #D4A080;
+  --rose-gold: #C4836A;
+
+  /* Deep Tones */
+  --burgundy: #6B2D3E;
+  --deep-green: #3D5A35;
+
+  /* Text */
+  --text-primary: #2D1F14;
+  --text-secondary: #5C4A3A;
+  --text-muted: #8A7A6A;
+  --text-faint: #B5A595;
+  --text-gold: #8B6F47;
+
+  /* ===== Typography ===== */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Cormorant Garamond', Georgia, serif;
+  --font-arabic: 'Amiri', 'Noto Naskh Arabic', serif;
+
+  /* Responsive Sizes — Mobile First */
+  --fs-hero-ar: clamp(3.5rem, 15vw, 7rem);
+  --fs-hero-name: clamp(3rem, 13vw, 6rem);
+  --fs-scene-title: clamp(2rem, 8vw, 3.5rem);
+  --fs-subtitle: clamp(1.3rem, 5.5vw, 2rem);
+  --fs-body: clamp(1rem, 3.5vw, 1.15rem);
+  --fs-body-ar: clamp(1.1rem, 4vw, 1.35rem);
+  --fs-body-ar-lg: clamp(1.2rem, 4.5vw, 1.5rem);
+  --fs-small: clamp(0.85rem, 3vw, 1rem);
+  --fs-xs: clamp(0.7rem, 2.5vw, 0.85rem);
+  --fs-label: clamp(0.6rem, 2.3vw, 0.75rem);
+  --fs-detail-num: clamp(5rem, 22vw, 10rem);
+  --fs-countdown-num: clamp(2.2rem, 9vw, 4rem);
+  --fs-countdown-label: clamp(0.55rem, 2vw, 0.7rem);
+  --fs-nav: clamp(1.4rem, 5.5vw, 1.8rem);
+
+  /* Letter Spacing */
+  --ls-ultra: 0.35em;
+  --ls-wide: 0.2em;
+  --ls-normal: 0.08em;
+
+  /* Line Heights */
+  --lh-none: 1;
+  --lh-tight: 1.15;
+  --lh-snug: 1.35;
+  --lh-normal: 1.6;
+  --lh-relaxed: 1.8;
+  --lh-arabic: 2.0;
+
+  /* ===== Spacing ===== */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 64px;
+  --space-2xl: 96px;
+  --space-3xl: 140px;
+
+  --section-pad: clamp(80px, 15vh, 140px);
+  --px: clamp(24px, 6vw, 60px);
+  --max-w: 560px;
+
+  /* ===== Easing ===== */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-smooth: cubic-bezier(0.45, 0, 0.55, 1);
+
+  /* ===== Z-Index ===== */
+  --z-bg: 0;
+  --z-particles: 1;
+  --z-content: 10;
+  --z-nav-btn: 100;
+  --z-nav: 200;
+}

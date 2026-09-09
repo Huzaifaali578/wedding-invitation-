@@ -1,0 +1,185 @@
+/* ============================================
+   RESPONSIVE — Cinematic Mobile-First Layout
+   Base: 320px+ (Smartphone standard)
+   Enhancements: 480px, 768px, 1024px+
+   ============================================ */
+
+/* ===== Larger Phones (480px+) ===== */
+@media (min-width: 480px) {
+  :root {
+    --px: 32px;
+  }
+
+  .countdown-grid {
+    gap: var(--space-md);
+  }
+
+  .closing-share-btns {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .closing-share-btns .btn {
+    width: auto;
+    min-width: 200px;
+  }
+
+  .rsvp-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .rsvp-buttons .btn {
+    width: auto;
+    min-width: 180px;
+  }
+}
+
+/* ===== Tablets (768px+) ===== */
+@media (min-width: 768px) {
+  :root {
+    --px: 48px;
+    --max-w: 680px;
+    --section-pad: clamp(100px, 18vh, 180px);
+  }
+
+  .scene-content {
+    max-width: var(--max-w);
+  }
+
+  .nav-inner ul {
+    gap: 8px;
+  }
+
+  .nav-inner a {
+    font-size: 2rem;
+    padding: 14px 32px;
+  }
+
+  .countdown-grid {
+    max-width: 440px;
+  }
+
+  .map-wrap {
+    height: 300px;
+  }
+
+  .video-frame {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Desktop/Tablet Hover Effects */
+  @media (hover: hover) {
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 30px rgba(201, 168, 76, 0.35);
+    }
+
+    .btn-outline:hover {
+      background: var(--antique-gold);
+      color: var(--ivory);
+      transform: translateY(-2px);
+    }
+
+    .nav-inner a:hover {
+      color: var(--antique-gold);
+      transform: scale(1.05);
+    }
+
+    .nav-toggle:hover {
+      transform: scale(1.08);
+      background: rgba(var(--ivory-rgb), 0.95);
+    }
+
+    .video-play-overlay:hover .play-icon {
+      transform: scale(1.1);
+    }
+  }
+}
+
+/* ===== Desktop (1024px+) ===== */
+@media (min-width: 1024px) {
+  :root {
+    --max-w: 740px;
+    --section-pad: 160px;
+  }
+
+  .hero-content {
+    max-width: 800px;
+  }
+
+  .countdown-grid {
+    max-width: 500px;
+  }
+
+  .nav-toggle {
+    top: 24px;
+    right: 28px;
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* ===== Small Phone Screens (under 360px) ===== */
+@media (max-width: 359px) {
+  :root {
+    --px: 16px;
+    --space-sm: 12px;
+    --space-md: 18px;
+    --space-lg: 28px;
+  }
+
+  .hero-names {
+    gap: 8px;
+  }
+
+  .countdown-grid {
+    gap: 6px;
+  }
+
+  .btn {
+    padding: 14px 24px;
+    font-size: 0.65rem;
+  }
+}
+
+/* ===== Landscape Phones ===== */
+@media (max-height: 520px) and (orientation: landscape) {
+  .scene-hero {
+    min-height: auto;
+    padding: 60px var(--px);
+  }
+
+  .scene {
+    padding: 60px var(--px);
+  }
+
+  .hero-scroll {
+    display: none;
+  }
+}
+
+/* ===== Print Styles ===== */
+@media print {
+  #particles,
+  .bg-glow,
+  .nav-toggle,
+  .nav-overlay,
+  .scene-video,
+  .scene-rsvp,
+  .closing-share,
+  .hero-scroll {
+    display: none !important;
+  }
+
+  .scene {
+    page-break-inside: avoid;
+    padding: 30px 0;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+}

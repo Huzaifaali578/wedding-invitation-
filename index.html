@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#FAF6ED">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="format-detection" content="telephone=no">
+  
+  <!-- SEO -->
+  <title>Husain &amp; Fatema — Wedding Celebration</title>
+  <meta name="description" content="You are cordially invited to the wedding celebration of Husain &amp; Fatema on Friday, 23rd October 2026 at Hussaini Baug Camp, Pune.">
+  
+  <!-- Open Graph / WhatsApp Preview -->
+  <meta property="og:title" content="Husain &amp; Fatema — Wedding Invitation">
+  <meta property="og:description" content="Join us for the wedding celebration on 23rd October 2026, Friday, 8:00 PM onwards at Hussaini Baug Camp, Pune.">
+  <meta property="og:image" content="weding invitation card/wedding card.png">
+  <meta property="og:type" content="website">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Ambient Gold Flakes (Lightweight Canvas) -->
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <!-- Ambient Light Orbs -->
+  <div class="bg-glow" aria-hidden="true">
+    <div class="bg-glow-orb"></div>
+    <div class="bg-glow-orb"></div>
+  </div>
+
+  <!-- Minimal Floating Navigation Toggle -->
+  <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Fullscreen Frosted Glass Navigation -->
+  <nav id="nav-overlay" class="nav-overlay" aria-hidden="true" role="dialog" aria-label="Wedding Invitation Menu">
+    <div class="nav-inner">
+      <ul>
+        <li><a href="#hero" data-nav>Invitation</a></li>
+        <li><a href="#invitation" data-nav>Blessings</a></li>
+        <li><a href="#couple" data-nav>The Couple</a></li>
+        <li><a href="#details" data-nav>The Date</a></li>
+        <li><a href="#countdown" data-nav>Countdown</a></li>
+        <li><a href="#video" data-nav>Card Film</a></li>
+        <li><a href="#venue" data-nav>Venue</a></li>
+        <li><a href="#rsvp" data-nav>RSVP</a></li>
+      </ul>
+      <span class="nav-ornament">✦ · ❦ · ✦</span>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       SCENE 1: HERO (Cinematic Full Viewport)
+       ============================================ -->
+  <section id="hero" class="scene scene-hero">
+    <div class="hero-content">
+      <p class="hero-bismillah anim-hero d1" aria-label="In the name of Allah, the Most Gracious, the Most Merciful">
+        بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+      </p>
+
+      <div class="hero-flourish anim-hero d2" aria-hidden="true">
+        <svg viewBox="0 0 240 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 12 H95 M145 12 H225" stroke="#C9A84C" stroke-width="0.8" opacity="0.45"/>
+          <circle cx="120" cy="12" r="3" fill="#C9A84C" opacity="0.8"/>
+          <circle cx="107" cy="12" r="1.5" fill="#C9A84C" opacity="0.5"/>
+          <circle cx="133" cy="12" r="1.5" fill="#C9A84C" opacity="0.5"/>
+        </svg>
+      </div>
+
+      <p class="hero-label anim-hero d3">Wedding Celebration</p>
+
+      <div class="hero-names-wrap anim-hero d4">
+        <div class="hero-names">
+          <span class="hero-name-ar text-shimmer" aria-label="Husain">حسین</span>
+          <span class="hero-amp" aria-hidden="true">&amp;</span>
+          <span class="hero-name-ar text-shimmer" aria-label="Fatema">فاطمة</span>
+        </div>
+        <div class="hero-names-en">
+          <span>Husain</span>
+          <span class="hero-amp-en">&amp;</span>
+          <span>Fatema</span>
+        </div>
+      </div>
+
+      <p class="hero-date anim-hero d5">23rd October 2026</p>
+      <p class="hero-info anim-hero d6">Friday · 8:00 PM Onwards · Hussaini Baug Camp, Pune</p>
+
+      <a href="#invitation" class="hero-scroll anim-hero d7" aria-label="Scroll to explore invitation">
+        <span>Scroll to explore</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SCENE 2: INVITATION (Traditional Blessings)
+       ============================================ -->
+  <section id="invitation" class="scene scene-invitation">
+    <div class="scene-content">
+      <div class="ornament-flourish reveal">
+        <svg viewBox="0 0 160 20" fill="none">
+          <line x1="15" y1="10" x2="65" y2="10" stroke="#C9A84C" stroke-width="0.75" opacity="0.4"/>
+          <line x1="95" y1="10" x2="145" y2="10" stroke="#C9A84C" stroke-width="0.75" opacity="0.4"/>
+          <circle cx="80" cy="10" r="2.5" fill="#C9A84C" opacity="0.8"/>
+        </svg>
+      </div>
+
+      <p class="scene-label reveal">دعوت نامہ</p>
+
+      <div class="invitation-arabic reveal-slow">
+        <p class="inv-paragraph">
+          خدا تعالیٰ نو حمد لئے شکر کریئے کہ خدا تع یہ اپنے آقا مولیٰ تع فی محبة فی حقیقی خوشبو سی مہکنار کیدا چھے، آپ مولیٰ تع ایک بیان ما فرماوے چھے :
+        </p>
+
+        <div class="inv-quote">
+          "خوشبو نو تعلق خدا لئے خدا نا ولی نے خوش کرلوا نا ساتھے چھے ، اھنے خوش کرو تو<br>
+          خوشی لئے خوشی چھے ....."
+        </div>
+
+        <p class="inv-paragraph">
+          اٴ بیان مبارک نا ضمن ما الخمسة الاطھار ع ، والائمة الابرار ص ع ، و دعاتھم الاخیار رض لاسیما الداعی الاجل سیدنا طاھر سیف الدین رض و الداعی الاجل سیدنا محمد برھان الدین رض ، بالخصوص الداعی العصر والحین
+        </p>
+
+        <div class="inv-calligraphy text-shimmer">
+          سیدنا و مولانا ابو جعفر الصادق علی قدر مفضل سیف الدین
+        </div>
+
+        <p class="inv-dua">
+          اطال اللہ بقاءہ الشریف الی یوم الدین
+        </p>
+
+        <p class="inv-body">
+          فی محبة فی خوشبو سی مہکتا ہوا لئے الامام الحسین ع نا آخری سجدہ نا دعائ فی برکة سی ، کہ جہ ہر مؤمن نو "خِتامُهُ مِسك" چھے ، اھنا طفیل ما ، ھمارا دکرا –
+        </p>
+      </div>
+
+      <div class="h-line line-expand" style="margin-top: var(--space-xl);"></div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SCENE 3: THE COUPLE
+       ============================================ -->
+  <section id="couple" class="scene scene-couple">
+    <div class="scene-content">
+      <div class="ornament-flourish reveal">
+        <svg viewBox="0 0 160 20" fill="none">
+          <line x1="20" y1="10" x2="70" y2="10" stroke="#C9A84C" stroke-width="0.75" opacity="0.4"/>
+          <line x1="90" y1="10" x2="140" y2="10" stroke="#C9A84C" stroke-width="0.75" opacity="0.4"/>
+          <circle cx="80" cy="10" r="2.5" fill="#C9A84C" opacity="0.8"/>
+        </svg>
+      </div>
+
+      <p class="scene-label reveal">The Blessed Union</p>
+
+      <!-- Groom -->
+      <div class="couple-block reveal">
+        <p class="couple-label">الولد الاحب</p>
+        <h2 class="couple-name-ar text-shimmer">حسین</h2>
+        <p class="couple-name-en">Husain</p>
+      </div>
+
+      <!-- Connector Vertical Ornament -->
+      <div class="couple-connector reveal">
+        <div class="couple-connector-line"></div>
+        <span class="couple-connector-text">في شادي مع</span>
+        <div class="couple-connector-line"></div>
+      </div>
+
+      <!-- Bride -->
+      <div class="couple-block reveal">
+        <p class="couple-label">البنت العزيزة</p>
+        <h2 class="couple-name-ar text-shimmer">فاطمة</h2>
+        <p class="couple-name-en">Fatema</p>
+      </div>
+
+      <!-- Parents -->
+      <p class="couple-parents reveal">
+        ( بنت جوذر بھائی و تسنیم بائی بوکسوالا )
+      </p>
+
+      <!-- Nikah text -->
+      <div class="couple-nikah reveal">
+        <p>فی نعمة نصیب تھئی چھے .</p>
+        <p style="margin-top: var(--space-sm);">بیوے فرنبندو نے ، ٢٨ فی شھر شعبان الکریم ١٤٤٧ ھ، موضع حسنفیر ما باواصاحب مولی نا دست مبارک پر نکاح نو شرف نصیب تھیو چھے .</p>
+        <p style="margin-top: var(--space-sm);">اٴ موقع ما اپنا یھاں ، مردوما لئے بئیروما اذن پیش کریئے چھے ، یہ خوشی ما شامل تھئی ھمنے ممنون کروا ادبا التماس چھے، والسلام .</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SCENE 4: DETAILS (Pure Typography)
+       ============================================ -->
+  <section id="details" class="scene scene-details">
+    <div class="scene-content">
+      <div class="details-composition reveal">
+        <span class="detail-month">October</span>
+        <span class="detail-day-number text-shimmer">23</span>
+        <span class="detail-year">2026 · Friday</span>
+        <span class="detail-hijri">١٣ جمادی الاولیٰ ١٤٤٨ ھ</span>
+
+        <div class="detail-divider line-expand"></div>
+
+        <span class="detail-text">Celebration Begins</span>
+        <p class="detail-venue-name">8:00 PM Onwards</p>
+
+        <div class="detail-divider line-expand" style="max-width: 40px;"></div>
+
+        <span class="detail-text">Venue</span>
+        <h3 class="detail-venue-name">Hussaini Baug</h3>
+        <p class="detail-venue-city">Camp, Pune, Maharashtra</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SCENE 5: COUNTDOWN (Typographic Numbers)
+       ============================================ -->
+  <section id="countdown" class="scene scene-countdown">
+    <div class="scene-content">
+      <p class="countdown-label-text reveal">Counting Down to the Blessed Occasion</p>
+      
+      <div class="countdown-grid reveal-scale" id="countdown-timer" aria-label="Countdown to wedding celebration">
+        <div class="countdown-unit">
+          <span class="countdown-number" id="countdown-days">--</span>
+          <span class="countdown-unit-label">Days</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-number" id="countdown-hours">--</span>
+          <span class="countdown-unit-label">Hours</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-number" id="countdown-mins">--</span>
+          <span class="countdown-unit-label">Mins</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-number" id="countdown-secs">--</span>
+          <span class="countdown-unit-label">Secs</span>
+        </div>
+      </div>
+
+      <p class="countdown-msg reveal" id="countdown-message"></p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SCENE 6: VIDEO (Cinematic Wedding Film)
+       ============================================ -->
+  <section id="video" class="scene scene-video">
+    <div class="scene-content">
+      <p class="video-intro-text reveal">"A moment to cherish forever"</p>
+      <p class="scene-label reveal">The Wedding Card Film</p>
+
+      <div class="video-frame reveal-scale">
+        <video 
+          id="wedding-video"
+          poster="weding invitation card/wedding card.png"
+          preload="none"
+          playsinline
+          controls
+          aria-label="Husain and Fatema wedding invitation video"
+        >
+          <source src="weding invitation card/wedding card.mp4" type="video/mp4">
+          Your browser does not support the video element.
+        </video>
+        <div class="video-play-overlay" id="video-play-btn" role="button" aria-label="Play invitation video" tabindex="0">
+          <div class="play-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5,3 19,12 5,21"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SCENE 7: VENUE & DIRECTIONS
+       ============================================ -->
+  <section id="venue" class="scene scene-venue">
+    <div class="scene-content">
+      <div class="ornament-flourish reveal">
+        <svg viewBox="0 0 160 20" fill="none">
+          <line x1="20" y1="10" x2="70" y2="10" stroke="#C9A84C" stroke-width="0.75" opacity="0.4"/>
+          <line x1="90" y1="10" x2="140" y2="10" stroke="#C9A84C" stroke-width="0.75" opacity="0.4"/>
+          <circle cx="80" cy="10" r="2.5" fill="#C9A84C" opacity="0.8"/>
+        </svg>
+      </div>
+
+      <p class="scene-label reveal">The Location</p>
+      <h3 class="venue-name reveal">Hussaini Baug</h3>
+      <p class="venue-address reveal">Camp, Pune · Maharashtra, India</p>
+
+      <div class="map-wrap reveal">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.2!2d73.88!3d18.52!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDMxJzEyLjAiTiA3M8KwNTInNDguMCJF!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Hussaini Baug Location Map"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <div class="reveal" style="margin-top: var(--space-md);">
+        <a href="https://maps.google.com/?q=Hussaini+Baug+Camp+Pune" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn btn-gold"
+           aria-label="Open directions in Google Maps">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          Get Directions
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SCENE 8: RSVP (Progressive Question)
+       ============================================ -->
+  <section id="rsvp" class="scene scene-rsvp">
+    <div class="scene-content">
+      <div class="ornament-flourish reveal">
+        <svg viewBox="0 0 160 20" fill="none">
+          <line x1="20" y1="10" x2="70" y2="10" stroke="#C9A84C" stroke-width="0.75" opacity="0.4"/>
+          <line x1="90" y1="10" x2="140" y2="10" stroke="#C9A84C" stroke-width="0.75" opacity="0.4"/>
+          <circle cx="80" cy="10" r="2.5" fill="#C9A84C" opacity="0.8"/>
+        </svg>
+      </div>
+
+      <p class="rsvp-question reveal">Will you celebrate with us?</p>
+
+      <!-- Step 1: Initial Question Buttons -->
+      <div class="rsvp-buttons reveal" id="rsvp-choice-btns">
+        <button type="button" class="btn btn-gold" id="btn-accept">Joyfully Accept</button>
+        <button type="button" class="btn btn-outline" id="btn-decline">Regretfully Decline</button>
+      </div>
+
+      <!-- Step 2: Form Revealed on Accept -->
+      <form class="rsvp-form" id="rsvp-form" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="rsvp-name">Your Full Name</label>
+          <input type="text" class="form-field" id="rsvp-name" name="name" placeholder="Enter your full name" required autocomplete="name">
+        </div>
+        <div class="form-group" style="margin-top: var(--space-sm);">
+          <label class="form-label" for="rsvp-guests">Number of Guests</label>
+          <input type="number" class="form-field" id="rsvp-guests" name="guests" min="1" max="20" value="1" inputmode="numeric">
+        </div>
+        <div style="margin-top: var(--space-md);">
+          <button type="submit" class="btn btn-gold" style="width: 100%;">
+            Confirm via WhatsApp
+          </button>
+        </div>
+      </form>
+
+      <!-- Step 3a: Accepted Success State -->
+      <div class="rsvp-response" id="rsvp-accepted">
+        <div class="rsvp-response-icon">✨</div>
+        <h4 class="scene-heading" style="font-size: var(--fs-subtitle);">Mubarak &amp; Shukran!</h4>
+        <p style="color: var(--text-secondary); margin-top: var(--space-xs);">
+          We eagerly look forward to welcoming you and celebrating together.
+        </p>
+      </div>
+
+      <!-- Step 3b: Declined State -->
+      <div class="rsvp-response" id="rsvp-declined">
+        <div class="rsvp-response-icon">🕊️</div>
+        <h4 class="scene-heading" style="font-size: var(--fs-subtitle);">You Will Be Missed</h4>
+        <p style="color: var(--text-secondary); margin-top: var(--space-xs); margin-bottom: var(--space-md);">
+          Thank you for letting us know. Your prayers and best wishes remain with us.
+        </p>
+        <button type="button" class="btn btn-outline" id="btn-decline-whatsapp" style="margin: 0 auto;">
+          Send Wishes on WhatsApp
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SCENE 9: CLOSING BLESSING & SHARE
+       ============================================ -->
+  <footer class="scene scene-closing">
+    <div class="scene-content">
+      <div class="ornament-flourish reveal">
+        <svg viewBox="0 0 160 20" fill="none">
+          <line x1="20" y1="10" x2="70" y2="10" stroke="#C9A84C" stroke-width="0.75" opacity="0.4"/>
+          <line x1="90" y1="10" x2="140" y2="10" stroke="#C9A84C" stroke-width="0.75" opacity="0.4"/>
+          <circle cx="80" cy="10" r="2.5" fill="#C9A84C" opacity="0.8"/>
+        </svg>
+      </div>
+
+      <p class="closing-blessing reveal">
+        May the blessings of Allah be upon this union, and may your presence fill our hearts with joy.
+      </p>
+
+      <h3 class="closing-names reveal text-shimmer">Husain &amp; Fatema</h3>
+      <p class="closing-date reveal">23rd October 2026 · Friday</p>
+      <p class="closing-venue reveal">Hussaini Baug Camp, Pune</p>
+
+      <p class="closing-wassalam reveal">والسلام</p>
+
+      <!-- Share Area -->
+      <div class="closing-share reveal">
+        <p class="closing-share-text">Share this invitation with loved ones</p>
+        <div class="closing-share-btns">
+          <button class="btn btn-gold" id="share-btn" aria-label="Share this invitation">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            Share Invitation
+          </button>
+          <a href="https://wa.me/?text=You%20are%20cordially%20invited%20to%20the%20wedding%20celebration%20of%20Husain%20%26%20Fatema%20on%2023rd%20October%202026%20at%20Hussaini%20Baug%20Camp%2C%20Pune.%208%20PM%20onwards.%20🌙✨" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="btn btn-outline"
+             aria-label="Share on WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <p class="closing-credit">Created with affection for Husain &amp; Fatema</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/share.js"></script>
+
+</body>
+</html>
