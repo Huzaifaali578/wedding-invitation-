@@ -12,25 +12,6 @@
 
   if (!navToggle || !navOverlay) return;
 
-  // ===== Reveal Toggle after scrolling past initial view =====
-  let isToggleVisible = false;
-
-  function handleScrollVisibility() {
-    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-    const threshold = 160;
-
-    if (scrollY > threshold && !isToggleVisible) {
-      navToggle.classList.add('visible');
-      isToggleVisible = true;
-    } else if (scrollY <= threshold && !navToggle.classList.contains('active')) {
-      navToggle.classList.remove('visible');
-      isToggleVisible = false;
-    }
-  }
-
-  window.addEventListener('scroll', handleScrollVisibility, { passive: true });
-  handleScrollVisibility();
-
   // ===== Open / Close Navigation Menu =====
   function openNav() {
     navToggle.classList.add('active', 'visible');
@@ -46,7 +27,6 @@
     navOverlay.setAttribute('aria-hidden', 'true');
     navToggle.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
-    handleScrollVisibility();
   }
 
   function toggleNav() {

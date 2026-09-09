@@ -1,8 +1,23 @@
 /* ============================================
-   RESPONSIVE — Cinematic Mobile-First Layout
-   Base: 320px+ (Smartphone standard)
-   Enhancements: 480px, 768px, 1024px+
+   RESPONSIVE — Mobile-First Cinematic Experience
+   Primary targets: 360px, 375px, 390px, 393px, 412px, 430px
+   Desktop & Tablet enhancements: 768px, 1024px+
    ============================================ */
+
+/* ===== Safe Areas (iPhone notch & Android gesture bar) ===== */
+@supports (padding: env(safe-area-inset-top)) {
+  .sound-toggle {
+    top: calc(16px + env(safe-area-inset-top));
+    left: calc(16px + env(safe-area-inset-left));
+  }
+  .nav-toggle {
+    top: calc(16px + env(safe-area-inset-top));
+    right: calc(16px + env(safe-area-inset-right));
+  }
+  .hero-bottom-bar {
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  }
+}
 
 /* ===== Larger Phones (480px+) ===== */
 @media (min-width: 480px) {
@@ -31,7 +46,7 @@
 
   .rsvp-buttons .btn {
     width: auto;
-    min-width: 180px;
+    min-width: 170px;
   }
 }
 
@@ -40,11 +55,33 @@
   :root {
     --px: 48px;
     --max-w: 680px;
-    --section-pad: clamp(100px, 18vh, 180px);
+    --section-pad: clamp(100px, 16vh, 160px);
   }
 
   .scene-content {
     max-width: var(--max-w);
+  }
+
+  /* Desktop/Tablet showcase for portrait 9:16 film */
+  .scene-hero-video {
+    background: radial-gradient(circle at center, #F5EEDD 0%, var(--ivory) 100%);
+  }
+
+  .hero-video-stage {
+    max-width: 480px;
+    height: 90vh;
+    max-height: 850px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    box-shadow: 0 20px 80px rgba(45, 31, 20, 0.18), 0 4px 20px rgba(201, 168, 76, 0.15);
+    border: 1px solid var(--gold-muted);
+  }
+
+  .hero-video-stage .hero-video-player,
+  .hero-video-stage .hero-video-poster {
+    border-radius: 20px;
   }
 
   .nav-inner ul {
@@ -64,22 +101,33 @@
     height: 300px;
   }
 
-  .video-frame {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  /* Desktop/Tablet Hover Effects */
+  /* Desktop Hover Effects */
   @media (hover: hover) {
     .btn-gold:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 30px rgba(201, 168, 76, 0.35);
+      box-shadow: 0 6px 30px rgba(201, 168, 76, 0.4);
     }
 
     .btn-outline:hover {
       background: var(--antique-gold);
       color: var(--ivory);
       transform: translateY(-2px);
+    }
+
+    .sound-toggle:hover {
+      transform: scale(1.05);
+      border-color: var(--antique-gold);
+    }
+
+    .btn-enter-invitation:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(201, 168, 76, 0.45);
+    }
+
+    .contact-card:hover {
+      border-color: var(--antique-gold);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(201, 168, 76, 0.15);
     }
 
     .nav-inner a:hover {
@@ -89,11 +137,7 @@
 
     .nav-toggle:hover {
       transform: scale(1.08);
-      background: rgba(var(--ivory-rgb), 0.95);
-    }
-
-    .video-play-overlay:hover .play-icon {
-      transform: scale(1.1);
+      background: rgba(var(--ivory-rgb), 0.98);
     }
   }
 }
@@ -101,23 +145,24 @@
 /* ===== Desktop (1024px+) ===== */
 @media (min-width: 1024px) {
   :root {
-    --max-w: 740px;
-    --section-pad: 160px;
-  }
-
-  .hero-content {
-    max-width: 800px;
+    --max-w: 720px;
+    --section-pad: 150px;
   }
 
   .countdown-grid {
-    max-width: 500px;
+    max-width: 480px;
   }
 
   .nav-toggle {
     top: 24px;
     right: 28px;
-    width: 48px;
-    height: 48px;
+    width: 46px;
+    height: 46px;
+  }
+
+  .sound-toggle {
+    top: 24px;
+    left: 28px;
   }
 }
 
@@ -127,11 +172,15 @@
     --px: 16px;
     --space-sm: 12px;
     --space-md: 18px;
-    --space-lg: 28px;
   }
 
-  .hero-names {
-    gap: 8px;
+  .hero-film-names {
+    font-size: 1.6rem;
+  }
+
+  .btn-enter-invitation {
+    padding: 12px 20px;
+    font-size: 0.65rem;
   }
 
   .countdown-grid {
@@ -139,24 +188,8 @@
   }
 
   .btn {
-    padding: 14px 24px;
+    padding: 14px 22px;
     font-size: 0.65rem;
-  }
-}
-
-/* ===== Landscape Phones ===== */
-@media (max-height: 520px) and (orientation: landscape) {
-  .scene-hero {
-    min-height: auto;
-    padding: 60px var(--px);
-  }
-
-  .scene {
-    padding: 60px var(--px);
-  }
-
-  .hero-scroll {
-    display: none;
   }
 }
 
@@ -165,11 +198,11 @@
   #particles,
   .bg-glow,
   .nav-toggle,
+  .sound-toggle,
   .nav-overlay,
-  .scene-video,
+  .hero-video-stage,
   .scene-rsvp,
-  .closing-share,
-  .hero-scroll {
+  .closing-share {
     display: none !important;
   }
 

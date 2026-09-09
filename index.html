@@ -33,7 +33,7 @@
 </head>
 <body>
 
-  <!-- Ambient Gold Flakes (Lightweight Canvas) -->
+  <!-- Ambient Gold Flakes (Lightweight Canvas floating over all layers) -->
   <canvas id="particles" aria-hidden="true"></canvas>
 
   <!-- Ambient Light Orbs -->
@@ -42,23 +42,36 @@
     <div class="bg-glow-orb"></div>
   </div>
 
-  <!-- Minimal Floating Navigation Toggle -->
+  <!-- Minimal Floating Sound Toggle Button (starts muted for mobile autoplay compliance) -->
+  <button id="sound-toggle" class="sound-toggle" aria-label="Enable sound" aria-pressed="false">
+    <svg class="sound-icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+      <line x1="23" y1="9" x2="17" y2="15"/>
+      <line x1="17" y1="9" x2="23" y2="15"/>
+    </svg>
+    <svg class="sound-icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+    </svg>
+    <span id="sound-label-text">Sound</span>
+  </button>
+
+  <!-- Minimal Floating Navigation Toggle (Hamburger to X) -->
   <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
     <span></span>
     <span></span>
     <span></span>
   </button>
 
-  <!-- Fullscreen Frosted Glass Navigation -->
+  <!-- Fullscreen Frosted Glass Navigation Overlay -->
   <nav id="nav-overlay" class="nav-overlay" aria-hidden="true" role="dialog" aria-label="Wedding Invitation Menu">
     <div class="nav-inner">
       <ul>
-        <li><a href="#hero" data-nav>Invitation</a></li>
+        <li><a href="#hero" data-nav>Cinematic Film</a></li>
         <li><a href="#invitation" data-nav>Blessings</a></li>
         <li><a href="#couple" data-nav>The Couple</a></li>
         <li><a href="#details" data-nav>The Date</a></li>
         <li><a href="#countdown" data-nav>Countdown</a></li>
-        <li><a href="#video" data-nav>Card Film</a></li>
         <li><a href="#venue" data-nav>Venue</a></li>
         <li><a href="#rsvp" data-nav>RSVP</a></li>
       </ul>
@@ -67,47 +80,71 @@
   </nav>
 
   <!-- ============================================
-       SCENE 1: HERO (Cinematic Full Viewport)
+       SCENE 1: CINEMATIC FULL-SCREEN VIDEO HERO
+       The opening film of the wedding experience.
        ============================================ -->
-  <section id="hero" class="scene scene-hero">
-    <div class="hero-content">
-      <p class="hero-bismillah anim-hero d1" aria-label="In the name of Allah, the Most Gracious, the Most Merciful">
+  <section id="hero" class="scene-hero-video" aria-label="Wedding Invitation Cinematic Intro">
+    <div class="hero-video-stage" id="hero-video-stage">
+      <!-- High-res Poster Fallback Layer -->
+      <div 
+        class="hero-video-poster" 
+        id="hero-video-poster" 
+        style="background-image: url('weding invitation card/wedding card.png');" 
+        aria-hidden="true">
+      </div>
+      
+      <!-- Full-Screen Cinematic Video -->
+      <video
+        id="hero-video"
+        class="hero-video-player"
+        src="weding invitation card/wedding card.mp4"
+        poster="weding invitation card/wedding card.png"
+        preload="auto"
+        autoplay
+        muted
+        playsinline
+        webkit-playsinline
+        aria-label="Husain and Fatema Wedding Cinematic Invitation"
+      ></video>
+
+      <!-- Warm Champagne Vignette Overlay -->
+      <div class="hero-video-overlay" aria-hidden="true"></div>
+    </div>
+
+    <!-- Top Bar: Bismillah -->
+    <div class="hero-top-bar">
+      <p class="hero-top-bismillah anim-hero d1" aria-label="In the name of Allah, the Most Gracious, the Most Merciful">
         بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
       </p>
+    </div>
 
-      <div class="hero-flourish anim-hero d2" aria-hidden="true">
-        <svg viewBox="0 0 240 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M15 12 H95 M145 12 H225" stroke="#C9A84C" stroke-width="0.8" opacity="0.45"/>
-          <circle cx="120" cy="12" r="3" fill="#C9A84C" opacity="0.8"/>
-          <circle cx="107" cy="12" r="1.5" fill="#C9A84C" opacity="0.5"/>
-          <circle cx="133" cy="12" r="1.5" fill="#C9A84C" opacity="0.5"/>
-        </svg>
+    <!-- Bottom Bar: Names, Subtitle, Actions & Progress Line -->
+    <div class="hero-bottom-bar" id="hero-bottom-bar">
+      <div class="hero-title-group anim-hero d3">
+        <h1 class="hero-film-names text-shimmer">Husain &amp; Fatema</h1>
+        <p class="hero-film-subtitle">Wedding Celebration · 23rd October 2026</p>
       </div>
 
-      <p class="hero-label anim-hero d3">Wedding Celebration</p>
+      <div class="hero-action-row anim-hero d5">
+        <!-- Replay button (appears when video reaches end, or click anytime) -->
+        <button id="replay-btn" class="btn-replay" aria-label="Replay film" style="display: none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+          <span>Replay</span>
+        </button>
 
-      <div class="hero-names-wrap anim-hero d4">
-        <div class="hero-names">
-          <span class="hero-name-ar text-shimmer" aria-label="Husain">حسین</span>
-          <span class="hero-amp" aria-hidden="true">&amp;</span>
-          <span class="hero-name-ar text-shimmer" aria-label="Fatema">فاطمة</span>
-        </div>
-        <div class="hero-names-en">
-          <span>Husain</span>
-          <span class="hero-amp-en">&amp;</span>
-          <span>Fatema</span>
-        </div>
+        <!-- Enter / Explore Invitation CTA -->
+        <a href="#invitation" id="enter-btn" class="btn-enter-invitation" aria-label="Explore wedding story">
+          <span>Explore Invitation</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 5v14M5 12l7 7 7-7"/>
+          </svg>
+        </a>
       </div>
 
-      <p class="hero-date anim-hero d5">23rd October 2026</p>
-      <p class="hero-info anim-hero d6">Friday · 8:00 PM Onwards · Hussaini Baug Camp, Pune</p>
-
-      <a href="#invitation" class="hero-scroll anim-hero d7" aria-label="Scroll to explore invitation">
-        <span>Scroll to explore</span>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 5v14M5 12l7 7 7-7"/>
-        </svg>
-      </a>
+      <!-- Subtle Video Timeline Progress Bar -->
+      <div class="hero-video-progress anim-hero d6" aria-hidden="true">
+        <div class="hero-video-progress-bar" id="hero-video-progress-bar"></div>
+      </div>
     </div>
   </section>
 
@@ -179,7 +216,7 @@
         <p class="couple-name-en">Husain</p>
       </div>
 
-      <!-- Connector Vertical Ornament -->
+      <!-- Connector Vertical Line -->
       <div class="couple-connector reveal">
         <div class="couple-connector-line"></div>
         <span class="couple-connector-text">في شادي مع</span>
@@ -263,38 +300,7 @@
   </section>
 
   <!-- ============================================
-       SCENE 6: VIDEO (Cinematic Wedding Film)
-       ============================================ -->
-  <section id="video" class="scene scene-video">
-    <div class="scene-content">
-      <p class="video-intro-text reveal">"A moment to cherish forever"</p>
-      <p class="scene-label reveal">The Wedding Card Film</p>
-
-      <div class="video-frame reveal-scale">
-        <video 
-          id="wedding-video"
-          poster="weding invitation card/wedding card.png"
-          preload="none"
-          playsinline
-          controls
-          aria-label="Husain and Fatema wedding invitation video"
-        >
-          <source src="weding invitation card/wedding card.mp4" type="video/mp4">
-          Your browser does not support the video element.
-        </video>
-        <div class="video-play-overlay" id="video-play-btn" role="button" aria-label="Play invitation video" tabindex="0">
-          <div class="play-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <polygon points="5,3 19,12 5,21"/>
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       SCENE 7: VENUE & DIRECTIONS
+       SCENE 6: VENUE & DIRECTIONS
        ============================================ -->
   <section id="venue" class="scene scene-venue">
     <div class="scene-content">
@@ -336,7 +342,7 @@
   </section>
 
   <!-- ============================================
-       SCENE 8: RSVP (Progressive Question)
+       SCENE 7: RSVP (Interactive & Family Contacts)
        ============================================ -->
   <section id="rsvp" class="scene scene-rsvp">
     <div class="scene-content">
@@ -393,11 +399,36 @@
           Send Wishes on WhatsApp
         </button>
       </div>
+
+      <!-- Direct RSVP Contacts from the Wedding Card -->
+      <div class="rsvp-direct-contacts reveal">
+        <p class="rsvp-contacts-title">Direct RSVP Contacts</p>
+        <div class="rsvp-contacts-grid">
+          <a href="https://wa.me/919765285652?text=Mubarak!%20Regarding%20the%20wedding%20invitation%20of%20Husain%20%26%20Fatema..." class="contact-card" target="_blank" rel="noopener noreferrer">
+            <div class="contact-info">
+              <span class="contact-name">Mustafa Bhai</span>
+              <span class="contact-phone">+91 97652 85652</span>
+            </div>
+            <span class="contact-action">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </span>
+          </a>
+          <a href="https://wa.me/919890504752?text=Mubarak!%20Regarding%20the%20wedding%20invitation%20of%20Husain%20%26%20Fatema..." class="contact-card" target="_blank" rel="noopener noreferrer">
+            <div class="contact-info">
+              <span class="contact-name">Nisreen Ben</span>
+              <span class="contact-phone">+91 98905 04752</span>
+            </div>
+            <span class="contact-action">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- ============================================
-       SCENE 9: CLOSING BLESSING & SHARE
+       SCENE 8: CLOSING BLESSING & SHARE
        ============================================ -->
   <footer class="scene scene-closing">
     <div class="scene-content">
