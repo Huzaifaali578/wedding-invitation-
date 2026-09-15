@@ -3,52 +3,877 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#FAF6ED">
+  <meta name="theme-color" content="#0D0A07">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="format-detection" content="telephone=no">
   
   <!-- SEO -->
-  <title>Husain &amp; Fatema — Wedding Celebration</title>
-  <meta name="description" content="You are cordially invited to the wedding celebration of Husain &amp; Fatema on Friday, 23rd October 2026 at Hussaini Baug Camp, Pune.">
+  <title>Husain &amp; Fatema — RSVP</title>
+  <meta name="description" content="RSVP for the wedding celebration of Husain &amp; Fatema on Friday, 23rd October 2026 at Hussaini Baug Camp, Pune.">
   
   <!-- Open Graph / WhatsApp Preview -->
-  <meta property="og:title" content="Husain &amp; Fatema — Wedding Invitation">
-  <meta property="og:description" content="Join us for the wedding celebration on 23rd October 2026, Friday, 8:00 PM onwards at Hussaini Baug Camp, Pune.">
+  <meta property="og:title" content="Husain &amp; Fatema — You're Invited">
+  <meta property="og:description" content="Please confirm your attendance for the wedding celebration. 23rd October 2026, 8 PM, Hussaini Baug Camp, Pune.">
   <meta property="og:image" content="weding invitation card/wedding card.png">
   <meta property="og:type" content="website">
   
   <!-- Google Fonts — Premium Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/sections.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    /* ============================================
+       DESIGN TOKENS
+       ============================================ */
+    :root {
+      /* Dark Cinematic Palette */
+      --bg-dark: #0D0A07;
+      --bg-dark-rgb: 13, 10, 7;
+      --bg-warm: #1A1510;
+      --bg-card: #171210;
+      --bg-elevated: #1E1915;
+
+      /* Gold Spectrum */
+      --gold: #C9A84C;
+      --gold-light: #E2C878;
+      --gold-dark: #A88B35;
+      --gold-muted: rgba(201, 168, 76, 0.15);
+      --gold-glow: rgba(201, 168, 76, 0.08);
+
+      /* Text on dark */
+      --text-bright: #FAF6ED;
+      --text-primary: #E8E0D4;
+      --text-secondary: #B5A595;
+      --text-muted: #7A6E62;
+      --text-faint: #4A4039;
+
+      /* Glass on dark */
+      --glass-bg: rgba(26, 21, 16, 0.75);
+      --glass-bg-strong: rgba(26, 21, 16, 0.9);
+      --glass-border: rgba(201, 168, 76, 0.12);
+      --glass-border-hover: rgba(201, 168, 76, 0.25);
+
+      /* Typography */
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Cormorant Garamond', Georgia, serif;
+      --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      /* Sizes */
+      --fs-hero: clamp(2.8rem, 11vw, 5rem);
+      --fs-subtitle: clamp(1rem, 3.5vw, 1.3rem);
+      --fs-body: clamp(0.95rem, 3vw, 1.1rem);
+      --fs-small: clamp(0.8rem, 2.8vw, 0.95rem);
+      --fs-xs: clamp(0.7rem, 2.5vw, 0.82rem);
+      --fs-label: clamp(0.6rem, 2.2vw, 0.72rem);
+
+      /* Spacing */
+      --px: clamp(20px, 5vw, 40px);
+
+      /* Easing */
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+      /* Radius */
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+
+      /* Shadows */
+      --shadow-card: 0 20px 80px rgba(0, 0, 0, 0.5), 0 4px 20px rgba(201, 168, 76, 0.08);
+      --shadow-gold: 0 4px 24px rgba(201, 168, 76, 0.25);
+      --shadow-btn: 0 4px 20px rgba(201, 168, 76, 0.35);
+    }
+
+    /* ============================================
+       BASE RESET
+       ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+    
+    body {
+      font-family: var(--font-body);
+      font-size: var(--fs-body);
+      color: var(--text-primary);
+      background: var(--bg-dark);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
+
+    img, video { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+    button { cursor: pointer; border: none; background: none; font: inherit; color: inherit; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+    input { font: inherit; font-size: 16px; color: inherit; border: none; outline: none; background: none; -webkit-appearance: none; appearance: none; }
+    ul { list-style: none; }
+
+    ::selection { background: var(--gold); color: var(--bg-dark); }
+
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(201, 168, 76, 0.3); border-radius: 3px; }
+    html { scrollbar-width: thin; scrollbar-color: rgba(201, 168, 76, 0.3) transparent; }
+
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 2px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* ============================================
+       AMBIENT PARTICLES
+       ============================================ */
+    #particles {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* ============================================
+       SOUND TOGGLE
+       ============================================ */
+    .sound-toggle {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      z-index: 100;
+      height: 40px;
+      padding: 0 14px;
+      border-radius: 20px;
+      background: rgba(var(--bg-dark-rgb), 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-secondary);
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: all 0.35s var(--ease-out);
+    }
+
+    .sound-toggle svg { width: 14px; height: 14px; flex-shrink: 0; }
+    .sound-toggle .sound-icon-unmuted { display: none; }
+    .sound-toggle .sound-icon-muted { display: block; }
+    .sound-toggle.unmuted { background: var(--gold); color: var(--bg-dark); border-color: var(--gold); box-shadow: var(--shadow-btn); }
+    .sound-toggle.unmuted .sound-icon-unmuted { display: block; }
+    .sound-toggle.unmuted .sound-icon-muted { display: none; }
+
+    /* ============================================
+       SCENE 1: CINEMATIC VIDEO HERO
+       Full-screen, dark, immersive
+       ============================================ */
+    .scene-hero {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      width: 100%;
+      overflow: hidden;
+      background: var(--bg-dark);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0 var(--px) calc(28px + env(safe-area-inset-bottom, 0px));
+    }
+
+    /* Video Stage */
+    .hero-video-stage {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .hero-video-player {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      opacity: 0;
+      transition: opacity 1.5s var(--ease-out);
+      z-index: 1;
+    }
+
+    .hero-video-player.visible { opacity: 1; }
+
+    .hero-video-player.fade-transition {
+      opacity: 0.1;
+      filter: blur(6px);
+      transform: scale(1.02);
+    }
+
+    /* Dark cinematic overlay — bottom-heavy for text legibility */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background: linear-gradient(
+        180deg,
+        rgba(13, 10, 7, 0.3) 0%,
+        rgba(13, 10, 7, 0.05) 30%,
+        rgba(13, 10, 7, 0.05) 50%,
+        rgba(13, 10, 7, 0.4) 70%,
+        rgba(13, 10, 7, 0.85) 88%,
+        rgba(13, 10, 7, 1) 100%
+      );
+    }
+
+    /* Bottom Content */
+    .hero-bottom {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding-bottom: 8px;
+    }
+
+    .hero-names {
+      font-family: var(--font-display);
+      font-size: var(--fs-hero);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      line-height: 1.1;
+      background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-light) 40%, #F0D88C 50%, var(--gold-light) 60%, var(--gold-dark) 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 4s linear infinite;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.2s var(--ease-out) 0.3s, transform 1.2s var(--ease-out) 0.3s;
+    }
+
+    .hero-names.visible { opacity: 1; transform: translateY(0); }
+
+    .hero-date-line {
+      font-family: var(--font-ui);
+      font-size: var(--fs-label);
+      color: var(--text-secondary);
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      font-weight: 400;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 1s var(--ease-out) 0.6s, transform 1s var(--ease-out) 0.6s;
+    }
+
+    .hero-date-line.visible { opacity: 1; transform: translateY(0); }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 1s var(--ease-out) 0.9s, transform 1s var(--ease-out) 0.9s;
+    }
+
+    .hero-actions.visible { opacity: 1; transform: translateY(0); }
+
+    /* CTA Button */
+    .btn-rsvp-hero {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 36px;
+      min-height: 52px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      color: var(--bg-dark);
+      font-family: var(--font-ui);
+      font-size: var(--fs-label);
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      box-shadow: var(--shadow-btn);
+      transition: all 0.35s var(--ease-out);
+      text-decoration: none;
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
+
+    .btn-rsvp-hero svg { width: 14px; height: 14px; animation: bounceDown 2.5s ease-in-out infinite; }
+    .btn-rsvp-hero:active { transform: scale(0.96); }
+
+    .btn-replay {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 10px 16px; border-radius: 20px;
+      background: rgba(var(--bg-dark-rgb), 0.6);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      color: var(--text-secondary);
+      font-family: var(--font-ui); font-size: 0.65rem;
+      letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .btn-replay svg { width: 12px; height: 12px; }
+
+    /* Progress */
+    .hero-progress { width: 120px; height: 2px; border-radius: 2px; background: rgba(201, 168, 76, 0.15); overflow: hidden; margin-top: 4px; opacity: 0; transition: opacity 1s var(--ease-out) 1.2s; }
+    .hero-progress.visible { opacity: 1; }
+    .hero-progress-bar { width: 0%; height: 100%; background: linear-gradient(90deg, var(--gold-dark), var(--gold-light)); border-radius: 2px; transition: width 0.15s linear; }
+
+    /* ============================================
+       SCENE 2: RSVP CARD — The Main Event
+       Glassmorphic floating card on dark bg
+       ============================================ */
+    .scene-rsvp {
+      position: relative;
+      z-index: 10;
+      padding: var(--px);
+      padding-top: clamp(40px, 8vh, 80px);
+      padding-bottom: clamp(60px, 12vh, 120px);
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .rsvp-card {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      padding: clamp(32px, 6vw, 48px) clamp(24px, 5vw, 40px);
+      border-radius: var(--radius-xl);
+      background: var(--glass-bg-strong);
+      backdrop-filter: blur(30px) saturate(1.3);
+      -webkit-backdrop-filter: blur(30px) saturate(1.3);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-card);
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px) scale(0.96);
+      transition: opacity 1s var(--ease-out), transform 1s var(--ease-out);
+    }
+
+    .rsvp-card.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Gold accent lines */
+    .rsvp-card::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 15%;
+      right: 15%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .rsvp-card::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 25%;
+      right: 25%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.4), transparent);
+    }
+
+    /* Card Ornament */
+    .rsvp-ornament {
+      color: var(--gold);
+      font-size: 0.85rem;
+      opacity: 0.5;
+      margin-bottom: 20px;
+      letter-spacing: 0.5em;
+    }
+
+    /* Card Names */
+    .rsvp-names {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 7vw, 2.4rem);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      line-height: 1.15;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-light) 40%, var(--gold) 60%, var(--gold-dark) 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 5s linear infinite;
+    }
+
+    /* Quick Reminder */
+    .rsvp-reminder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 16px 0 20px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .rsvp-reminder-date {
+      font-family: var(--font-display);
+      font-size: var(--fs-subtitle);
+      color: var(--text-bright);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+    }
+
+    .rsvp-reminder-venue {
+      font-family: var(--font-ui);
+      font-size: var(--fs-xs);
+      color: var(--text-muted);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .rsvp-reminder-time {
+      font-family: var(--font-body);
+      font-size: var(--fs-small);
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    /* Question */
+    .rsvp-question {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 5vw, 1.8rem);
+      color: var(--text-bright);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.3;
+      margin-bottom: 28px;
+    }
+
+    /* Choice Buttons */
+    .rsvp-choices {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-accept, .btn-decline {
+      width: 100%;
+      max-width: 280px;
+      padding: 16px 28px;
+      min-height: 52px;
+      border-radius: 26px;
+      font-family: var(--font-ui);
+      font-size: var(--fs-label);
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      transition: all 0.35s var(--ease-out);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-accept {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      color: var(--bg-dark);
+      box-shadow: var(--shadow-gold);
+    }
+
+    .btn-accept::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, transparent 60%);
+    }
+
+    .btn-accept:active { transform: scale(0.96); }
+
+    .btn-decline {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--text-faint);
+    }
+
+    .btn-decline:active { background: rgba(201, 168, 76, 0.1); color: var(--gold); border-color: var(--gold); }
+
+    /* RSVP Form */
+    .rsvp-form {
+      display: none;
+      text-align: left;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    .rsvp-form.show {
+      display: block;
+      animation: fadeInUp 0.6s var(--ease-out);
+    }
+
+    .form-group { margin-bottom: 16px; }
+
+    .form-label {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: var(--fs-xs);
+      color: var(--text-muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .form-field {
+      width: 100%;
+      padding: 14px 18px;
+      min-height: 50px;
+      font-size: 16px;
+      font-family: var(--font-body);
+      color: var(--text-bright);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-field:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
+    }
+
+    .form-field::placeholder { color: var(--text-faint); }
+
+    .btn-submit {
+      width: 100%;
+      padding: 16px 28px;
+      min-height: 52px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      color: var(--bg-dark);
+      font-family: var(--font-ui);
+      font-size: var(--fs-label);
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      box-shadow: var(--shadow-gold);
+      margin-top: 20px;
+      transition: all 0.35s var(--ease-out);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-submit:active { transform: scale(0.96); }
+    .btn-submit svg { width: 16px; height: 16px; }
+
+    /* Response States */
+    .rsvp-response {
+      display: none;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .rsvp-response.show {
+      display: block;
+      animation: fadeInUp 0.6s var(--ease-out);
+    }
+
+    .rsvp-response-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .rsvp-response h4 {
+      font-family: var(--font-display);
+      font-size: var(--fs-subtitle);
+      color: var(--text-bright);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .rsvp-response p {
+      font-family: var(--font-body);
+      font-size: var(--fs-small);
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .btn-decline-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 24px;
+      border-radius: 22px;
+      border: 1px solid var(--text-faint);
+      color: var(--text-secondary);
+      font-family: var(--font-ui);
+      font-size: var(--fs-label);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-top: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-decline-wa:active { border-color: var(--gold); color: var(--gold); }
+    .btn-decline-wa svg { width: 14px; height: 14px; }
+
+    /* Direct Contacts */
+    .rsvp-contacts {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .rsvp-contacts-label {
+      font-family: var(--font-ui);
+      font-size: var(--fs-label);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(201, 168, 76, 0.06);
+      transition: all 0.3s var(--ease-out);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .contact-item:active { transform: scale(0.98); border-color: var(--gold-muted); }
+
+    .contact-item-info { display: flex; flex-direction: column; text-align: left; }
+    .contact-item-name { font-family: var(--font-display); font-size: 0.9rem; font-weight: 600; color: var(--text-primary); }
+    .contact-item-phone { font-family: var(--font-ui); font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.03em; }
+    .contact-item-icon { color: var(--gold); }
+    .contact-item-icon svg { width: 20px; height: 20px; }
+
+    /* ============================================
+       MINI FOOTER
+       ============================================ */
+    .mini-footer {
+      position: relative;
+      z-index: 10;
+      padding: 24px var(--px) calc(32px + env(safe-area-inset-bottom, 0px));
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-share {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-share {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: 1px solid var(--glass-border);
+      background: rgba(var(--bg-dark-rgb), 0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: var(--text-secondary);
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: all 0.3s var(--ease-out);
+      text-decoration: none;
+    }
+
+    .btn-share:active { border-color: var(--gold); color: var(--gold); }
+    .btn-share svg { width: 14px; height: 14px; }
+
+    .footer-credit {
+      font-family: var(--font-ui);
+      font-size: 0.65rem;
+      color: var(--text-faint);
+      opacity: 0.5;
+      letter-spacing: 0.05em;
+    }
+
+    /* ============================================
+       KEYFRAMES
+       ============================================ */
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    @keyframes bounceDown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(5px); opacity: 0.5; }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.35), var(--shadow-btn); }
+      50% { box-shadow: 0 0 0 10px rgba(201, 168, 76, 0), var(--shadow-btn); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.3; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    @keyframes gradientDrift {
+      0% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(15px, -10px) scale(1.03); }
+      66% { transform: translate(-10px, 8px) scale(0.98); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+
+    @keyframes countdownPop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+      100% { transform: scale(1); }
+    }
+
+    /* ============================================
+       CONFETTI BURST (on submit)
+       ============================================ */
+    .confetti-container {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    .confetti-piece {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 1px;
+      opacity: 0;
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @supports (padding: env(safe-area-inset-top)) {
+      .sound-toggle { top: calc(16px + env(safe-area-inset-top)); left: calc(16px + env(safe-area-inset-left)); }
+    }
+
+    @media (min-width: 480px) {
+      .rsvp-choices { flex-direction: row; justify-content: center; }
+      .btn-accept, .btn-decline { width: auto; min-width: 180px; }
+      .footer-share .btn-share { min-width: 140px; }
+    }
+
+    @media (min-width: 768px) {
+      .hero-video-stage {
+        max-width: 480px;
+        height: 88vh;
+        max-height: 850px;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 20px 80px rgba(0,0,0,0.4), 0 4px 20px rgba(201, 168, 76, 0.1);
+        border: 1px solid var(--glass-border);
+      }
+
+      .hero-video-player { border-radius: var(--radius-lg); }
+
+      .scene-hero {
+        background: radial-gradient(circle at center, #1A1510 0%, var(--bg-dark) 100%);
+      }
+
+      .rsvp-card { padding: 48px 44px; }
+
+      @media (hover: hover) {
+        .btn-accept:hover { transform: translateY(-2px); box-shadow: 0 8px 36px rgba(201, 168, 76, 0.4); }
+        .btn-decline:hover { border-color: var(--gold); color: var(--gold); }
+        .btn-rsvp-hero:hover { transform: translateY(-2px); box-shadow: 0 8px 36px rgba(201, 168, 76, 0.5); }
+        .btn-share:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-1px); }
+        .contact-item:hover { border-color: var(--glass-border-hover); transform: translateY(-2px); box-shadow: 0 4px 20px rgba(201, 168, 76, 0.08); }
+        .sound-toggle:hover { transform: scale(1.05); border-color: var(--gold-muted); }
+        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 36px rgba(201, 168, 76, 0.4); }
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .rsvp-card { max-width: 460px; }
+      .sound-toggle { top: 24px; left: 28px; }
+    }
+
+    @media (max-width: 359px) {
+      .rsvp-card { padding: 24px 18px; }
+      .hero-names { font-size: 2.2rem; }
+      .btn-accept, .btn-decline { padding: 14px 22px; font-size: 0.6rem; }
+    }
+
+    @media print {
+      #particles, .sound-toggle, .hero-video-stage { display: none !important; }
+      body { background: white; color: black; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Ambient Gold Flakes (Lightweight Canvas floating over all layers) -->
+  <!-- Ambient Gold Particles -->
   <canvas id="particles" aria-hidden="true"></canvas>
 
-  <!-- Ambient Light Orbs -->
-  <div class="bg-glow" aria-hidden="true">
-    <div class="bg-glow-orb"></div>
-    <div class="bg-glow-orb"></div>
-    <div class="bg-glow-orb"></div>
-  </div>
-
-  <!-- Minimal Floating Sound Toggle Button (starts muted for mobile autoplay compliance) -->
+  <!-- Sound Toggle -->
   <button id="sound-toggle" class="sound-toggle" aria-label="Enable sound" aria-pressed="false">
     <svg class="sound-icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-      <line x1="23" y1="9" x2="17" y2="15"/>
-      <line x1="17" y1="9" x2="23" y2="15"/>
+      <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
     </svg>
     <svg class="sound-icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
@@ -57,400 +882,360 @@
     <span id="sound-label-text">Sound</span>
   </button>
 
-  <!-- Minimal Floating Navigation Toggle (Hamburger to X) -->
-  <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-
-  <!-- Fullscreen Frosted Glass Navigation Overlay -->
-  <nav id="nav-overlay" class="nav-overlay" aria-hidden="true" role="dialog" aria-label="Wedding Invitation Menu">
-    <div class="nav-inner">
-      <ul>
-        <li><a href="#hero" data-nav>Cinematic Film</a></li>
-        <li><a href="#invitation" data-nav>The Invitation</a></li>
-        <li><a href="#couple" data-nav>The Couple</a></li>
-        <li><a href="#details" data-nav>The Date</a></li>
-        <li><a href="#countdown" data-nav>Countdown</a></li>
-        <li><a href="#venue" data-nav>Venue</a></li>
-        <li><a href="#rsvp" data-nav>RSVP</a></li>
-      </ul>
-      <span class="nav-ornament">✦ · ❦ · ✦</span>
-    </div>
-  </nav>
-
-  <!-- ============================================
-       SCENE 1: CINEMATIC FULL-SCREEN VIDEO HERO
-       The opening film of the wedding experience.
-       ============================================ -->
-  <section id="hero" class="scene-hero-video" aria-label="Wedding Invitation Cinematic Intro">
-    <div class="hero-video-stage" id="hero-video-stage">
-      <!-- Full-Screen Cinematic Video -->
+  <!-- ===== SCENE 1: CINEMATIC VIDEO HERO ===== -->
+  <section class="scene-hero" id="hero">
+    <div class="hero-video-stage">
       <video
         id="hero-video"
         class="hero-video-player"
         src="weding invitation card/wedding card.mp4"
         poster="weding invitation card/wedding card.png"
-        preload="auto"
-        autoplay
-        muted
-        playsinline
-        webkit-playsinline
+        preload="auto" autoplay muted playsinline webkit-playsinline
       ></video>
-
-      <!-- Warm Champagne Vignette Overlay -->
-      <div class="hero-video-overlay" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
     </div>
 
-    <!-- Top Bar -->
-    <div class="hero-top-bar"></div>
+    <div class="hero-bottom">
+      <h1 class="hero-names" id="hero-names">Husain &amp; Fatema</h1>
+      <p class="hero-date-line" id="hero-date">Friday · 23 October 2026 · 8 PM</p>
 
-    <!-- Bottom Bar: Actions & Progress Line -->
-    <div class="hero-bottom-bar" id="hero-bottom-bar">
-      <div class="hero-title-group anim-hero d3"></div>
-
-      <div class="hero-action-row anim-hero d5">
-        <!-- Replay button (appears when video reaches end) -->
+      <div class="hero-actions" id="hero-actions">
         <button id="replay-btn" class="btn-replay" aria-label="Replay film" style="display: none;">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
           <span>Replay</span>
         </button>
-
-        <!-- Enter / Explore Invitation CTA -->
-        <a href="#invitation" id="enter-btn" class="btn-enter-invitation" aria-label="Explore wedding story">
-          <span>Explore Invitation</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 5v14M5 12l7 7 7-7"/>
-          </svg>
+        <a href="#rsvp" class="btn-rsvp-hero" id="btn-rsvp-hero">
+          <span>RSVP Now</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
         </a>
       </div>
 
-      <!-- Subtle Video Timeline Progress Bar -->
-      <div class="hero-video-progress anim-hero d6" aria-hidden="true">
-        <div class="hero-video-progress-bar" id="hero-video-progress-bar"></div>
+      <div class="hero-progress" id="hero-progress">
+        <div class="hero-progress-bar" id="hero-progress-bar"></div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================
-       SCENE 2: THE INVITATION — Elegant Blessings
-       ============================================ -->
-  <section id="invitation" class="scene scene-invitation">
-    <div class="scene-content">
-      <div class="ornament-flourish reveal">
-        <svg viewBox="0 0 160 20" fill="none">
-          <line x1="20" y1="10" x2="70" y2="10" stroke="#C9A84C" stroke-width="0.75" opacity="0.4"/>
-          <line x1="90" y1="10" x2="140" y2="10" stroke="#C9A84C" stroke-width="0.75" opacity="0.4"/>
-          <circle cx="80" cy="10" r="2.5" fill="#C9A84C" opacity="0.8"/>
-        </svg>
+  <!-- ===== SCENE 2: THE RSVP CARD ===== -->
+  <section class="scene-rsvp" id="rsvp">
+    <div class="rsvp-card" id="rsvp-card">
+      <p class="rsvp-ornament">✦ · ❦ · ✦</p>
+
+      <h2 class="rsvp-names">Husain &amp; Fatema</h2>
+
+      <div class="rsvp-reminder">
+        <span class="rsvp-reminder-date">Friday, 23rd October 2026</span>
+        <span class="rsvp-reminder-venue">Hussaini Baug · Camp, Pune</span>
+        <span class="rsvp-reminder-time">8:00 PM Onwards</span>
       </div>
 
-      <p class="scene-label reveal">The Invitation</p>
+      <p class="rsvp-question">Will you celebrate with us?</p>
 
-      <div class="invitation-card reveal-slow">
-        <p class="inv-blessing-line">With hearts full of joy and gratitude,</p>
-        <p class="inv-blessing-line">we warmly invite you to share in the celebration</p>
-        <p class="inv-blessing-line">of the union of our beloved</p>
-
-        <div class="inv-names-highlight">
-          <h2 class="inv-couple-name text-shimmer">Husain &amp; Fatema</h2>
-        </div>
-
-        <div class="inv-divider-ornament">
-          <span class="inv-ornament-dot"></span>
-          <span class="inv-ornament-line"></span>
-          <span class="inv-ornament-dot"></span>
-        </div>
-
-        <p class="inv-message">
-          Together with their families, they request the honour of your
-          presence at their wedding celebration. Your love, prayers, and 
-          blessings would make this occasion truly memorable.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       SCENE 3: THE COUPLE — Editorial Typography
-       ============================================ -->
-  <section id="couple" class="scene scene-couple">
-    <div class="scene-content">
-      <p class="scene-label reveal">The Couple</p>
-
-      <div class="couple-showcase">
-        <!-- Groom -->
-        <div class="couple-person reveal">
-          <div class="couple-person-inner">
-            <span class="couple-role">The Groom</span>
-            <h3 class="couple-name-display text-shimmer">Husain</h3>
-            <div class="couple-name-underline line-expand"></div>
-          </div>
-        </div>
-
-        <!-- Connector -->
-        <div class="couple-connector reveal-scale">
-          <div class="couple-connector-line"></div>
-          <span class="couple-ampersand">&amp;</span>
-          <div class="couple-connector-line"></div>
-        </div>
-
-        <!-- Bride -->
-        <div class="couple-person reveal">
-          <div class="couple-person-inner">
-            <span class="couple-role">The Bride</span>
-            <h3 class="couple-name-display text-shimmer">Fatema</h3>
-            <div class="couple-name-underline line-expand"></div>
-          </div>
-        </div>
+      <!-- Step 1: Choice -->
+      <div class="rsvp-choices" id="rsvp-choices">
+        <button type="button" class="btn-accept" id="btn-accept">Joyfully Accept</button>
+        <button type="button" class="btn-decline" id="btn-decline">Regretfully Decline</button>
       </div>
 
-      <p class="couple-tagline reveal-slow">Two souls, one beautiful journey</p>
-    </div>
-  </section>
-
-  <!-- ============================================
-       SCENE 4: DETAILS (Pure Typography)
-       ============================================ -->
-  <section id="details" class="scene scene-details">
-    <div class="scene-content">
-      <div class="details-composition reveal">
-        <span class="detail-month">October</span>
-        <span class="detail-day-number text-shimmer">23</span>
-        <span class="detail-year">2026 · Friday</span>
-
-        <div class="detail-divider line-expand"></div>
-
-        <span class="detail-text">Celebration Begins</span>
-        <p class="detail-venue-name">8:00 PM Onwards</p>
-
-        <div class="detail-divider line-expand" style="max-width: 40px;"></div>
-
-        <span class="detail-text">Venue</span>
-        <h3 class="detail-venue-name">Hussaini Baug</h3>
-        <p class="detail-venue-city">Camp, Pune, Maharashtra</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       SCENE 5: COUNTDOWN (Typographic Numbers)
-       ============================================ -->
-  <section id="countdown" class="scene scene-countdown">
-    <div class="scene-content">
-      <p class="countdown-label-text reveal">Counting Down to the Special Day</p>
-      
-      <div class="countdown-grid reveal-scale" id="countdown-timer" aria-label="Countdown to wedding celebration">
-        <div class="countdown-unit">
-          <div class="countdown-card">
-            <span class="countdown-number" id="countdown-days">--</span>
-          </div>
-          <span class="countdown-unit-label">Days</span>
-        </div>
-        <div class="countdown-unit">
-          <div class="countdown-card">
-            <span class="countdown-number" id="countdown-hours">--</span>
-          </div>
-          <span class="countdown-unit-label">Hours</span>
-        </div>
-        <div class="countdown-unit">
-          <div class="countdown-card">
-            <span class="countdown-number" id="countdown-mins">--</span>
-          </div>
-          <span class="countdown-unit-label">Mins</span>
-        </div>
-        <div class="countdown-unit">
-          <div class="countdown-card">
-            <span class="countdown-number" id="countdown-secs">--</span>
-          </div>
-          <span class="countdown-unit-label">Secs</span>
-        </div>
-      </div>
-
-      <p class="countdown-msg reveal" id="countdown-message"></p>
-    </div>
-  </section>
-
-  <!-- ============================================
-       SCENE 6: VENUE & DIRECTIONS
-       ============================================ -->
-  <section id="venue" class="scene scene-venue">
-    <div class="scene-content">
-      <div class="ornament-flourish reveal">
-        <svg viewBox="0 0 160 20" fill="none">
-          <line x1="20" y1="10" x2="70" y2="10" stroke="#C9A84C" stroke-width="0.75" opacity="0.4"/>
-          <line x1="90" y1="10" x2="140" y2="10" stroke="#C9A84C" stroke-width="0.75" opacity="0.4"/>
-          <circle cx="80" cy="10" r="2.5" fill="#C9A84C" opacity="0.8"/>
-        </svg>
-      </div>
-
-      <p class="scene-label reveal">The Location</p>
-      <h3 class="venue-name reveal">Hussaini Baug</h3>
-      <p class="venue-address reveal">Camp, Pune · Maharashtra, India</p>
-
-      <div class="map-wrap reveal">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.2!2d73.88!3d18.52!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDMxJzEyLjAiTiA3M8KwNTInNDguMCJF!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Hussaini Baug Location Map"
-          allowfullscreen
-        ></iframe>
-      </div>
-
-      <div class="reveal" style="margin-top: var(--space-md);">
-        <a href="https://maps.google.com/?q=Hussaini+Baug+Camp+Pune" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="btn btn-gold"
-           aria-label="Open directions in Google Maps">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-          </svg>
-          Get Directions
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       SCENE 7: RSVP (Interactive & Family Contacts)
-       ============================================ -->
-  <section id="rsvp" class="scene scene-rsvp">
-    <div class="scene-content">
-      <div class="ornament-flourish reveal">
-        <svg viewBox="0 0 160 20" fill="none">
-          <line x1="20" y1="10" x2="70" y2="10" stroke="#C9A84C" stroke-width="0.75" opacity="0.4"/>
-          <line x1="90" y1="10" x2="140" y2="10" stroke="#C9A84C" stroke-width="0.75" opacity="0.4"/>
-          <circle cx="80" cy="10" r="2.5" fill="#C9A84C" opacity="0.8"/>
-        </svg>
-      </div>
-
-      <p class="rsvp-question reveal">Will you celebrate with us?</p>
-
-      <!-- Step 1: Initial Question Buttons -->
-      <div class="rsvp-buttons reveal" id="rsvp-choice-btns">
-        <button type="button" class="btn btn-gold" id="btn-accept">Joyfully Accept</button>
-        <button type="button" class="btn btn-outline" id="btn-decline">Regretfully Decline</button>
-      </div>
-
-      <!-- Step 2: Form Revealed on Accept -->
+      <!-- Step 2: Form -->
       <form class="rsvp-form" id="rsvp-form" novalidate>
         <div class="form-group">
           <label class="form-label" for="rsvp-name">Your Full Name</label>
-          <input type="text" class="form-field" id="rsvp-name" name="name" placeholder="Enter your full name" required autocomplete="name">
+          <input type="text" class="form-field" id="rsvp-name" name="name" placeholder="Enter your name" required autocomplete="name">
         </div>
-        <div class="form-group" style="margin-top: var(--space-sm);">
+        <div class="form-group">
           <label class="form-label" for="rsvp-guests">Number of Guests</label>
           <input type="number" class="form-field" id="rsvp-guests" name="guests" min="1" max="20" value="1" inputmode="numeric">
         </div>
-        <div style="margin-top: var(--space-md);">
-          <button type="submit" class="btn btn-gold" style="width: 100%;">
-            Confirm via WhatsApp
-          </button>
-        </div>
+        <button type="submit" class="btn-submit">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Confirm via WhatsApp
+        </button>
       </form>
 
-      <!-- Step 3a: Accepted Success State -->
+      <!-- Step 3a: Accepted -->
       <div class="rsvp-response" id="rsvp-accepted">
         <div class="rsvp-response-icon">✨</div>
-        <h4 class="scene-heading" style="font-size: var(--fs-subtitle);">Thank You!</h4>
-        <p style="color: var(--text-secondary); margin-top: var(--space-xs);">
-          We eagerly look forward to welcoming you and celebrating together.
-        </p>
+        <h4>Thank You!</h4>
+        <p>We look forward to celebrating with you.</p>
       </div>
 
-      <!-- Step 3b: Declined State -->
+      <!-- Step 3b: Declined -->
       <div class="rsvp-response" id="rsvp-declined">
         <div class="rsvp-response-icon">🕊️</div>
-        <h4 class="scene-heading" style="font-size: var(--fs-subtitle);">You Will Be Missed</h4>
-        <p style="color: var(--text-secondary); margin-top: var(--space-xs); margin-bottom: var(--space-md);">
-          Thank you for letting us know. Your prayers and best wishes mean the world to us.
-        </p>
-        <button type="button" class="btn btn-outline" id="btn-decline-whatsapp" style="margin: 0 auto;">
-          Send Wishes on WhatsApp
+        <h4>You Will Be Missed</h4>
+        <p>Thank you for letting us know. Your wishes mean the world to us.</p>
+        <button type="button" class="btn-decline-wa" id="btn-decline-wa">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Send Wishes
         </button>
       </div>
 
-      <!-- Direct RSVP Contacts from the Wedding Card -->
-      <div class="rsvp-direct-contacts reveal">
-        <p class="rsvp-contacts-title">Direct RSVP Contacts</p>
-        <div class="rsvp-contacts-grid">
-          <a href="https://wa.me/919765285652?text=Congratulations!%20Regarding%20the%20wedding%20invitation%20of%20Husain%20%26%20Fatema..." class="contact-card" target="_blank" rel="noopener noreferrer">
-            <div class="contact-info">
-              <span class="contact-name">Mustafa Bhai</span>
-              <span class="contact-phone">+91 97652 85652</span>
+      <!-- Direct Contacts -->
+      <div class="rsvp-contacts">
+        <p class="rsvp-contacts-label">Direct Contact</p>
+        <div class="contact-row">
+          <a href="https://wa.me/919765285652?text=Congratulations!%20Regarding%20the%20wedding%20of%20Husain%20%26%20Fatema..." class="contact-item" target="_blank" rel="noopener noreferrer">
+            <div class="contact-item-info">
+              <span class="contact-item-name">Mustafa Bhai</span>
+              <span class="contact-item-phone">+91 97652 85652</span>
             </div>
-            <span class="contact-action">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            </span>
+            <span class="contact-item-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>
           </a>
-          <a href="https://wa.me/919890504752?text=Congratulations!%20Regarding%20the%20wedding%20invitation%20of%20Husain%20%26%20Fatema..." class="contact-card" target="_blank" rel="noopener noreferrer">
-            <div class="contact-info">
-              <span class="contact-name">Nisreen Ben</span>
-              <span class="contact-phone">+91 98905 04752</span>
+          <a href="https://wa.me/919890504752?text=Congratulations!%20Regarding%20the%20wedding%20of%20Husain%20%26%20Fatema..." class="contact-item" target="_blank" rel="noopener noreferrer">
+            <div class="contact-item-info">
+              <span class="contact-item-name">Nisreen Ben</span>
+              <span class="contact-item-phone">+91 98905 04752</span>
             </div>
-            <span class="contact-action">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            </span>
+            <span class="contact-item-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================
-       SCENE 8: CLOSING BLESSING & SHARE
-       ============================================ -->
-  <footer class="scene scene-closing">
-    <div class="scene-content">
-      <div class="ornament-flourish reveal">
-        <svg viewBox="0 0 160 20" fill="none">
-          <line x1="20" y1="10" x2="70" y2="10" stroke="#C9A84C" stroke-width="0.75" opacity="0.4"/>
-          <line x1="90" y1="10" x2="140" y2="10" stroke="#C9A84C" stroke-width="0.75" opacity="0.4"/>
-          <circle cx="80" cy="10" r="2.5" fill="#C9A84C" opacity="0.8"/>
-        </svg>
-      </div>
-
-      <p class="closing-blessing reveal">
-        May this union be blessed with eternal love, joy, and togetherness. Your presence would fill our hearts with happiness.
-      </p>
-
-      <h3 class="closing-names reveal text-shimmer">Husain &amp; Fatema</h3>
-      <p class="closing-date reveal">23rd October 2026 · Friday</p>
-      <p class="closing-venue reveal">Hussaini Baug Camp, Pune</p>
-
-      <p class="closing-warm-wish reveal">With love &amp; gratitude</p>
-
-      <!-- Share Area -->
-      <div class="closing-share reveal">
-        <p class="closing-share-text">Share this invitation with loved ones</p>
-        <div class="closing-share-btns">
-          <button class="btn btn-gold" id="share-btn" aria-label="Share this invitation">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-            Share Invitation
-          </button>
-          <a href="https://wa.me/?text=You%20are%20cordially%20invited%20to%20the%20wedding%20celebration%20of%20Husain%20%26%20Fatema%20on%2023rd%20October%202026%20at%20Hussaini%20Baug%20Camp%2C%20Pune.%208%20PM%20onwards.%20🌙✨" 
-             target="_blank" 
-             rel="noopener noreferrer" 
-             class="btn btn-outline"
-             aria-label="Share on WhatsApp">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            WhatsApp
-          </a>
-        </div>
-      </div>
-
-      <p class="closing-credit">Created with love for Husain &amp; Fatema</p>
+  <!-- ===== MINI FOOTER ===== -->
+  <footer class="mini-footer">
+    <div class="footer-share">
+      <button class="btn-share" id="share-btn" aria-label="Share invitation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        Share
+      </button>
+      <a href="https://wa.me/?text=You%20are%20invited%20to%20the%20wedding%20celebration%20of%20Husain%20%26%20Fatema%20%E2%80%93%2023%20Oct%202026%2C%208PM%2C%20Hussaini%20Baug%20Camp%2C%20Pune.%20%F0%9F%8C%99%E2%9C%A8" target="_blank" rel="noopener noreferrer" class="btn-share" aria-label="Share on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
     </div>
+    <p class="footer-credit">With love · Husain &amp; Fatema</p>
   </footer>
 
-  <!-- Scripts -->
-  <script src="js/app.js"></script>
-  <script src="js/countdown.js"></script>
-  <script src="js/navigation.js"></script>
-  <script src="js/share.js"></script>
+  <script>
+    /* ============================================
+       CINEMATIC RSVP — All-in-One Script
+       ============================================ */
+    (function() {
+      'use strict';
+
+      const video = document.getElementById('hero-video');
+      const soundToggle = document.getElementById('sound-toggle');
+      const soundLabel = document.getElementById('sound-label-text');
+      const progressBar = document.getElementById('hero-progress-bar');
+      const replayBtn = document.getElementById('replay-btn');
+
+      // ===== Video Lifecycle =====
+      if (video) {
+        video.muted = true;
+
+        function revealVideo() {
+          video.classList.add('visible');
+        }
+
+        video.addEventListener('loadeddata', () => {
+          const p = video.play();
+          if (p) p.then(revealVideo).catch(() => console.log('Autoplay deferred'));
+        });
+        video.addEventListener('playing', revealVideo);
+        video.addEventListener('canplay', revealVideo);
+
+        // Sound toggle
+        if (soundToggle) {
+          soundToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (video.muted) {
+              video.muted = false;
+              soundToggle.classList.add('unmuted');
+              soundToggle.setAttribute('aria-pressed', 'true');
+              if (soundLabel) soundLabel.textContent = 'On';
+              if (video.paused) video.play().catch(() => {});
+            } else {
+              video.muted = true;
+              soundToggle.classList.remove('unmuted');
+              soundToggle.setAttribute('aria-pressed', 'false');
+              if (soundLabel) soundLabel.textContent = 'Sound';
+            }
+          });
+        }
+
+        // Progress bar
+        video.addEventListener('timeupdate', () => {
+          if (!video.duration) return;
+          const pct = (video.currentTime / video.duration) * 100;
+          if (progressBar) progressBar.style.width = pct.toFixed(1) + '%';
+          if (video.currentTime >= video.duration - 1.2 && !video.classList.contains('fade-transition')) {
+            video.classList.add('fade-transition');
+          }
+        });
+
+        // Video end
+        video.addEventListener('ended', () => {
+          if (replayBtn) replayBtn.style.display = 'inline-flex';
+          setTimeout(() => {
+            if ((window.pageYOffset || document.documentElement.scrollTop) < 80) {
+              document.getElementById('rsvp').scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 1200);
+        });
+
+        // Replay
+        if (replayBtn) {
+          replayBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            video.currentTime = 0;
+            video.classList.remove('fade-transition');
+            video.play().then(() => { replayBtn.style.display = 'none'; }).catch(() => {});
+          });
+        }
+
+        // Pause when scrolled past
+        let wasPlaying = false;
+        window.addEventListener('scroll', () => {
+          const sy = window.pageYOffset || document.documentElement.scrollTop;
+          if (sy > window.innerHeight * 1.1) {
+            if (!video.paused) { wasPlaying = true; video.pause(); }
+          } else if (video.paused && wasPlaying && !video.ended) {
+            video.play().catch(() => {}); wasPlaying = false;
+          }
+        }, { passive: true });
+      }
+
+      // ===== Hero Text Reveal =====
+      function revealHero() {
+        ['hero-names', 'hero-date', 'hero-actions', 'hero-progress'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.classList.add('visible');
+        });
+      }
+
+      // ===== RSVP Card Scroll Reveal =====
+      function initCardReveal() {
+        const card = document.getElementById('rsvp-card');
+        if (!card || !('IntersectionObserver' in window)) { if (card) card.classList.add('visible'); return; }
+        const obs = new IntersectionObserver(entries => {
+          entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+        }, { threshold: 0.15 });
+        obs.observe(card);
+      }
+
+      // ===== RSVP Flow =====
+      const btnAccept = document.getElementById('btn-accept');
+      const btnDecline = document.getElementById('btn-decline');
+      const choices = document.getElementById('rsvp-choices');
+      const form = document.getElementById('rsvp-form');
+      const accepted = document.getElementById('rsvp-accepted');
+      const declined = document.getElementById('rsvp-declined');
+      const btnDeclineWa = document.getElementById('btn-decline-wa');
+      const PHONE = '919890504752';
+
+      if (btnAccept) btnAccept.addEventListener('click', () => {
+        choices.style.display = 'none';
+        form.classList.add('show');
+        const inp = document.getElementById('rsvp-name');
+        if (inp) setTimeout(() => inp.focus(), 150);
+      });
+
+      if (btnDecline) btnDecline.addEventListener('click', () => {
+        choices.style.display = 'none';
+        declined.classList.add('show');
+      });
+
+      if (btnDeclineWa) btnDeclineWa.addEventListener('click', () => {
+        const t = encodeURIComponent('🌙 Wedding Greetings for Husain & Fatema\n\nWarmest congratulations! Regretfully I cannot attend, but my heartfelt wishes are with the couple!');
+        window.open(`https://wa.me/${PHONE}?text=${t}`, '_blank');
+      });
+
+      if (form) form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('rsvp-name').value.trim();
+        const guests = document.getElementById('rsvp-guests').value;
+        if (!name) { document.getElementById('rsvp-name').style.borderColor = '#C4836A'; document.getElementById('rsvp-name').focus(); setTimeout(() => document.getElementById('rsvp-name').style.borderColor = '', 2000); return; }
+        const msg = encodeURIComponent(`🌙 *Wedding RSVP — Husain & Fatema*\n\nName: ${name}\nGuests: ${guests}\nAttendance: Joyfully Accept ✨\n\n_Sent via invitation_`);
+        window.open(`https://wa.me/${PHONE}?text=${msg}`, '_blank');
+        form.classList.remove('show'); form.style.display = 'none';
+        accepted.classList.add('show');
+        fireConfetti();
+      });
+
+      // ===== Share =====
+      const shareBtn = document.getElementById('share-btn');
+      if (shareBtn) shareBtn.addEventListener('click', async () => {
+        const data = { title: 'Husain & Fatema — Wedding RSVP', text: 'Please RSVP for the wedding of Husain & Fatema. 23 Oct 2026, 8PM, Hussaini Baug, Pune. 🌙✨', url: location.href };
+        if (navigator.share && navigator.canShare && navigator.canShare(data)) {
+          try { await navigator.share(data); } catch(e) {}
+        } else {
+          window.open(`https://wa.me/?text=${encodeURIComponent(data.text + '\n' + data.url)}`, '_blank');
+        }
+      });
+
+      // ===== Confetti Burst =====
+      function fireConfetti() {
+        const container = document.createElement('div');
+        container.className = 'confetti-container';
+        document.body.appendChild(container);
+        const colors = ['#C9A84C', '#E2C878', '#A88B35', '#F0D88C', '#D4A080', '#FAF6ED'];
+        for (let i = 0; i < 60; i++) {
+          const piece = document.createElement('div');
+          piece.className = 'confetti-piece';
+          const x = 50 + (Math.random() - 0.5) * 30;
+          const y = 50;
+          piece.style.left = x + '%';
+          piece.style.top = y + '%';
+          piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+          piece.style.width = (4 + Math.random() * 6) + 'px';
+          piece.style.height = (4 + Math.random() * 6) + 'px';
+          piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '1px';
+          const angle = Math.random() * Math.PI * 2;
+          const velocity = 200 + Math.random() * 400;
+          const dx = Math.cos(angle) * velocity;
+          const dy = Math.sin(angle) * velocity - 300;
+          const rot = Math.random() * 720 - 360;
+          piece.animate([
+            { opacity: 1, transform: 'translate(0, 0) rotate(0deg)' },
+            { opacity: 0, transform: `translate(${dx}px, ${dy + 600}px) rotate(${rot}deg)` }
+          ], { duration: 1200 + Math.random() * 800, easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)', fill: 'forwards' });
+          container.appendChild(piece);
+        }
+        setTimeout(() => container.remove(), 2500);
+      }
+
+      // ===== Gold Particles =====
+      function initParticles() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const canvas = document.getElementById('particles');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let particles = [], animId, active = true;
+        const count = window.innerWidth < 480 ? 16 : 24;
+
+        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        function create() { return { x: Math.random() * canvas.width, y: Math.random() * canvas.height, r: Math.random() * 1.8 + 0.4, vy: -(Math.random() * 0.2 + 0.05), vx: (Math.random() - 0.5) * 0.14, o: Math.random() * 0.4 + 0.05, do: (Math.random() - 0.5) * 0.005, h: 36 + Math.random() * 14, s: 60 + Math.random() * 25, l: 55 + Math.random() * 18 }; }
+        function init() { particles = []; for (let i = 0; i < count; i++) particles.push(create()); }
+
+        function draw() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          for (const p of particles) {
+            p.y += p.vy; p.x += p.vx; p.o += p.do;
+            if (p.o <= 0.03 || p.o >= 0.5) p.do = -p.do;
+            if (p.y < -10 || p.x < -10 || p.x > canvas.width + 10) { p.y = canvas.height + 10; p.x = Math.random() * canvas.width; p.o = 0.05; }
+            ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = `hsla(${p.h},${p.s}%,${p.l}%,${p.o})`; ctx.fill();
+          }
+          if (active) animId = requestAnimationFrame(draw);
+        }
+
+        document.addEventListener('visibilitychange', () => { if (document.hidden) { active = false; cancelAnimationFrame(animId); } else { active = true; draw(); } });
+        let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { resize(); init(); }, 200); });
+        resize(); init(); draw();
+      }
+
+      // ===== Init =====
+      document.addEventListener('DOMContentLoaded', () => {
+        initParticles();
+        initCardReveal();
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => setTimeout(revealHero, 150));
+        else setTimeout(revealHero, 300);
+      });
+    })();
+  </script>
 
 </body>
 </html>
