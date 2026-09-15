@@ -357,31 +357,48 @@
     }
   }
 
+  // Helper: Get clean canonical URL without any hash (#rsvp) or query params
+  function getCleanUrl() {
+    return window.location.href.split('#')[0].split('?')[0];
+  }
+
   // ==========================================
   // 6. SHARE INVITATION
   // ==========================================
   function initShareController() {
     const shareBtn = document.getElementById('share-btn');
-    if (!shareBtn) return;
+    const waShareBtn = document.getElementById('whatsapp-share-btn');
+    const cleanUrl = getCleanUrl();
+    const shareText = `Please RSVP for the wedding of ${CONFIG.weddingDetails.groomAndBride}. ${CONFIG.weddingDetails.date}, 8PM, ${CONFIG.weddingDetails.venue}. 💥✨`;
 
-    shareBtn.addEventListener('click', async () => {
-      const shareData = {
-        title: `${CONFIG.weddingDetails.groomAndBride} — Wedding RSVP`,
-        text: `Please RSVP for the wedding of ${CONFIG.weddingDetails.groomAndBride}. ${CONFIG.weddingDetails.date}, 8PM, ${CONFIG.weddingDetails.venue}. 🌙✨`,
-        url: window.location.href
-      };
+    if (shareBtn) {
+      shareBtn.addEventListener('click', async () => {
+        const shareData = {
+          title: `${CONFIG.weddingDetails.groomAndBride} — Wedding RSVP`,
+          text: shareText,
+          url: cleanUrl
+        };
 
-      if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
-        try {
-          await navigator.share(shareData);
-        } catch (err) {
-          // User cancelled or dismissed share sheet
+        if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+          try {
+            await navigator.share(shareData);
+          } catch (err) {
+            // User cancelled or dismissed share sheet
+          }
+        } else {
+          const text = encodeURIComponent(`${shareText}\n${cleanUrl}`);
+          window.open(`https://wa.me/?text=${text}`, '_blank');
         }
-      } else {
-        const text = encodeURIComponent(`${shareData.text}\n${shareData.url}`);
+      });
+    }
+
+    if (waShareBtn) {
+      waShareBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const text = encodeURIComponent(`${shareText}\n${cleanUrl}`);
         window.open(`https://wa.me/?text=${text}`, '_blank');
-      }
-    });
+      });
+    }
   }
 
   // ==========================================
