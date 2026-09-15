@@ -40,7 +40,7 @@
       secsEl.textContent = '00';
 
       if (messageEl) {
-        messageEl.textContent = '🌙 The auspicious celebration has commenced! ✨';
+        messageEl.textContent = '🌙 The celebration has commenced! ✨';
       }
       return;
     }
@@ -78,11 +78,11 @@
     if (messageEl) {
       if (days > 30) {
         const months = Math.floor(days / 30);
-        messageEl.textContent = `${months} month${months > 1 ? 's' : ''} until the blessed union`;
+        messageEl.textContent = `${months} month${months > 1 ? 's' : ''} until the celebration`;
       } else if (days > 0) {
-        messageEl.textContent = `${days} day${days > 1 ? 's' : ''} to go · Alhamdulillah`;
+        messageEl.textContent = `${days} day${days > 1 ? 's' : ''} to go`;
       } else if (hours > 0) {
-        messageEl.textContent = 'Tonight is the blessed celebration! 🌙';
+        messageEl.textContent = 'Tonight is the big celebration! 🌙';
       } else {
         messageEl.textContent = 'Just moments away ✨';
       }

@@ -48,6 +48,10 @@
     width: auto;
     min-width: 170px;
   }
+
+  .invitation-card {
+    padding: var(--space-xl) var(--space-lg);
+  }
 }
 
 /* ===== Tablets (768px+) ===== */
@@ -74,14 +78,14 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 20px;
-    box-shadow: 0 20px 80px rgba(45, 31, 20, 0.18), 0 4px 20px rgba(201, 168, 76, 0.15);
-    border: 1px solid var(--gold-muted);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-elevated);
+    border: 1px solid var(--glass-border);
   }
 
   .hero-video-stage .hero-video-player,
   .hero-video-stage .hero-video-poster {
-    border-radius: 20px;
+    border-radius: var(--radius-lg);
   }
 
   .nav-inner ul {
@@ -99,45 +103,90 @@
 
   .map-wrap {
     height: 300px;
+    border-radius: var(--radius-lg);
+  }
+
+  /* Couple cards side by side on larger screens */
+  .couple-showcase {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-md);
+  }
+
+  .couple-person {
+    flex: 1;
+    max-width: 280px;
+  }
+
+  .couple-connector {
+    flex-direction: column;
+    padding: 0 var(--space-sm);
+  }
+
+  .couple-connector-line {
+    width: 1px;
+    height: 40px;
   }
 
   /* Desktop Hover Effects */
   @media (hover: hover) {
     .btn-gold:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 30px rgba(201, 168, 76, 0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 36px rgba(201, 168, 76, 0.45);
+    }
+
+    .btn-gold:hover::before {
+      opacity: 0.6;
     }
 
     .btn-outline:hover {
       background: var(--antique-gold);
       color: var(--ivory);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 24px rgba(201, 168, 76, 0.3);
     }
 
     .sound-toggle:hover {
-      transform: scale(1.05);
+      transform: scale(1.06);
       border-color: var(--antique-gold);
+      box-shadow: 0 4px 20px rgba(201, 168, 76, 0.15);
     }
 
     .btn-enter-invitation:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 28px rgba(201, 168, 76, 0.45);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 36px rgba(201, 168, 76, 0.5);
     }
 
     .contact-card:hover {
       border-color: var(--antique-gold);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(201, 168, 76, 0.15);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(201, 168, 76, 0.2);
     }
 
     .nav-inner a:hover {
       color: var(--antique-gold);
-      transform: scale(1.05);
+      transform: scale(1.06);
+      letter-spacing: 0.25em;
     }
 
     .nav-toggle:hover {
-      transform: scale(1.08);
+      transform: scale(1.1);
       background: rgba(var(--ivory-rgb), 0.98);
+      box-shadow: 0 4px 24px rgba(201, 168, 76, 0.2);
+    }
+
+    .couple-person-inner:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .countdown-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(201, 168, 76, 0.12);
+    }
+
+    .invitation-card:hover {
+      box-shadow: 0 16px 70px rgba(45, 31, 20, 0.14), 0 4px 12px rgba(201, 168, 76, 0.1);
     }
   }
 }
@@ -156,13 +205,21 @@
   .nav-toggle {
     top: 24px;
     right: 28px;
-    width: 46px;
-    height: 46px;
+    width: 48px;
+    height: 48px;
   }
 
   .sound-toggle {
     top: 24px;
     left: 28px;
+  }
+
+  .invitation-card {
+    padding: var(--space-2xl) var(--space-xl);
+  }
+
+  .couple-person {
+    max-width: 300px;
   }
 }
 
@@ -190,6 +247,14 @@
   .btn {
     padding: 14px 22px;
     font-size: 0.65rem;
+  }
+
+  .invitation-card {
+    padding: var(--space-lg) var(--space-sm);
+  }
+
+  .couple-name-display {
+    font-size: 2rem;
   }
 }
 

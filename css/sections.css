@@ -1,6 +1,6 @@
 /* ============================================
    SECTIONS — Each Scene is a Chapter
-   Cinematic visual journey, not a card layout.
+   Premium cinematic visual journey.
    ============================================ */
 
 /* ===== Scene Base ===== */
@@ -18,7 +18,6 @@
 
 /* =========================================
    SCENE 1: CINEMATIC FULL-SCREEN VIDEO HERO
-   The opening film of the wedding experience.
    Seamless poster-to-video reveal with muted autoplay.
    ========================================= */
 .scene-hero-video {
@@ -36,7 +35,7 @@
   z-index: 10;
 }
 
-/* Video Stage (Centered & Constrained on large screens, full cover on mobile) */
+/* Video Stage */
 .hero-video-stage {
   position: absolute;
   inset: 0;
@@ -50,7 +49,7 @@
   z-index: 1;
 }
 
-/* Poster layer: fallback & initial frame */
+/* Poster layer */
 .hero-video-poster {
   position: absolute;
   inset: 0;
@@ -94,7 +93,7 @@
   transform: scale(1.02);
 }
 
-/* Subtle Warm Vignette Overlay (Ensures UI legibility while preserving artwork) */
+/* Warm Vignette Overlay */
 .hero-video-overlay {
   position: absolute;
   inset: 0;
@@ -102,16 +101,17 @@
   pointer-events: none;
   background: linear-gradient(
     180deg,
-    rgba(250, 246, 237, 0.65) 0%,
-    rgba(250, 246, 237, 0.12) 18%,
-    rgba(250, 246, 237, 0.05) 50%,
-    rgba(250, 246, 237, 0.15) 75%,
-    rgba(250, 246, 237, 0.85) 92%,
-    rgba(250, 246, 237, 0.98) 100%
+    rgba(250, 246, 237, 0.55) 0%,
+    rgba(250, 246, 237, 0.08) 18%,
+    transparent 40%,
+    transparent 60%,
+    rgba(250, 246, 237, 0.12) 78%,
+    rgba(250, 246, 237, 0.75) 92%,
+    rgba(250, 246, 237, 0.95) 100%
   );
 }
 
-/* Top Bar: Centered Bismillah */
+/* Top Bar */
 .hero-top-bar {
   position: relative;
   z-index: 10;
@@ -121,16 +121,7 @@
   padding-top: 8px;
 }
 
-.hero-top-bismillah {
-  font-family: var(--font-arabic);
-  font-size: clamp(1.15rem, 4.2vw, 1.55rem);
-  color: var(--antique-gold);
-  direction: rtl;
-  line-height: var(--lh-relaxed);
-  text-shadow: 0 1px 12px rgba(250, 246, 237, 0.95), 0 0 2px rgba(201, 168, 76, 0.3);
-}
-
-/* Bottom Bar: Names, Subtitle, Actions & Progress Line */
+/* Bottom Bar */
 .hero-bottom-bar {
   position: relative;
   z-index: 10;
@@ -140,32 +131,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   padding-bottom: 8px;
 }
 
 .hero-title-group {
   text-align: center;
-}
-
-.hero-film-names {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 7.5vw, 2.7rem);
-  font-weight: 600;
-  letter-spacing: var(--ls-normal);
-  line-height: var(--lh-tight);
-  text-shadow: 0 2px 14px rgba(250, 246, 237, 0.95);
-  margin-bottom: 2px;
-}
-
-.hero-film-subtitle {
-  font-family: var(--font-body);
-  font-size: var(--fs-small);
-  color: var(--text-secondary);
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
-  font-weight: 500;
-  text-shadow: 0 1px 8px rgba(250, 246, 237, 0.9);
 }
 
 .hero-action-row {
@@ -176,7 +147,7 @@
   width: 100%;
 }
 
-/* Video Progress Indicator Line */
+/* Video Progress */
 .hero-video-progress {
   width: 140px;
   height: 2.5px;
@@ -189,165 +160,210 @@
 .hero-video-progress-bar {
   width: 0%;
   height: 100%;
-  background: var(--antique-gold);
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
   border-radius: 2px;
   transition: width 0.15s linear;
 }
 
 /* =========================================
-   SCENE 2: INVITATION & BLESSINGS
-   Traditional text revealed with scroll.
-   Parchment background for warmth.
+   SCENE 2: INVITATION — Elegant Blessings Card
+   Premium glassmorphic card with rich typography.
    ========================================= */
 .scene-invitation {
-  background: var(--parchment);
+  background: linear-gradient(180deg, var(--parchment) 0%, var(--ivory) 100%);
+  overflow: hidden;
 }
 
-.invitation-arabic {
-  direction: rtl;
-  text-align: right;
-  font-family: var(--font-arabic);
-  line-height: var(--lh-arabic);
+.invitation-card {
+  position: relative;
+  padding: var(--space-xl) var(--space-md);
+  border-radius: var(--radius-lg);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-elevated);
+  max-width: 480px;
+  margin: 0 auto;
 }
 
-.inv-paragraph {
-  font-size: var(--fs-body-ar);
-  color: var(--text-primary);
-  margin-bottom: var(--space-md);
+.invitation-card::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--antique-gold), transparent);
+  border-radius: 1px;
 }
 
-.inv-quote {
-  font-size: var(--fs-body-ar-lg);
-  color: var(--text-primary);
-  font-weight: 700;
-  text-align: center;
-  direction: rtl;
-  padding: var(--space-md) 0;
-  margin-bottom: var(--space-md);
+.invitation-card::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--antique-gold), transparent);
+  border-radius: 1px;
 }
 
-.inv-calligraphy {
-  font-size: clamp(1.4rem, 5vw, 2rem);
-  color: var(--gold-dark);
-  font-weight: 700;
-  text-align: center;
-  direction: rtl;
-  padding: var(--space-lg) var(--space-sm);
-  border-top: 1px solid var(--gold-muted);
-  border-bottom: 1px solid var(--gold-muted);
-  margin: var(--space-lg) 0;
-  line-height: var(--lh-relaxed);
-}
-
-.inv-dua {
-  font-size: var(--fs-xs);
-  color: var(--text-muted);
-  text-align: center;
-  direction: rtl;
-  margin-bottom: var(--space-lg);
-}
-
-.inv-body {
-  font-size: var(--fs-body-ar);
+.inv-blessing-line {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
   color: var(--text-secondary);
-  text-align: center;
-  direction: rtl;
-  margin-bottom: var(--space-sm);
-  line-height: var(--lh-arabic);
+  line-height: var(--lh-relaxed);
+  font-style: italic;
+}
+
+.inv-names-highlight {
+  padding: var(--space-lg) 0 var(--space-md);
+}
+
+.inv-couple-name {
+  font-family: var(--font-display);
+  font-size: var(--fs-scene-title);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+  line-height: var(--lh-tight);
+}
+
+.inv-divider-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: var(--space-md);
+}
+
+.inv-ornament-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--antique-gold);
+  opacity: 0.6;
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+.inv-ornament-dot:last-child {
+  animation-delay: 1.5s;
+}
+
+.inv-ornament-line {
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--antique-gold), transparent);
+}
+
+.inv-message {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--text-muted);
+  line-height: var(--lh-relaxed);
+  max-width: 360px;
+  margin: 0 auto;
 }
 
 /* =========================================
-   SCENE 3: THE COUPLE
-   Editorial, staggered, romantic typography.
-   Vertical connector line + family honors.
+   SCENE 3: THE COUPLE — Editorial Showcase
+   Staggered, romantic typography with glass cards.
    ========================================= */
 .scene-couple {
   background: var(--ivory);
+  overflow: hidden;
 }
 
-.couple-block {
-  margin-bottom: var(--space-md);
-  text-align: center;
+.couple-showcase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
 }
 
-.couple-label {
-  font-family: var(--font-arabic);
-  font-size: var(--fs-body-ar);
+.couple-person {
+  width: 100%;
+  max-width: 360px;
+}
+
+.couple-person-inner {
+  padding: var(--space-lg) var(--space-md);
+  border-radius: var(--radius-lg);
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+}
+
+.couple-role {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: var(--fs-label);
   color: var(--text-muted);
-  direction: rtl;
-  margin-bottom: 4px;
+  letter-spacing: var(--ls-ultra);
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+  font-weight: 500;
 }
 
-.couple-name-ar {
-  font-family: var(--font-arabic);
-  font-size: var(--fs-hero-ar);
-  font-weight: 700;
-  direction: rtl;
-  line-height: var(--lh-tight);
-  margin-bottom: 4px;
-}
-
-.couple-name-en {
+.couple-name-display {
   font-family: var(--font-display);
-  font-size: var(--fs-subtitle);
-  color: var(--text-secondary);
-  letter-spacing: var(--ls-wide);
-  font-weight: 400;
+  font-size: clamp(2.5rem, 10vw, 4.5rem);
+  font-weight: 600;
+  letter-spacing: var(--ls-normal);
+  line-height: var(--lh-tight);
+  margin-bottom: var(--space-xs);
 }
 
-/* Connector between names — vertical ornament */
+.couple-name-underline {
+  height: 2px;
+  max-width: 60px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent, var(--antique-gold), transparent);
+}
+
+/* Connector — vertical ornament */
 .couple-connector {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-sm);
-  margin: var(--space-lg) 0;
+  gap: 8px;
+  padding: var(--space-md) 0;
 }
 
 .couple-connector-line {
   width: 1px;
-  height: 40px;
+  height: 30px;
   background: linear-gradient(180deg, transparent, var(--antique-gold), transparent);
 }
 
-.couple-connector-text {
-  font-family: var(--font-arabic);
-  font-size: var(--fs-body-ar);
-  color: var(--text-gold);
-  direction: rtl;
+.couple-ampersand {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  color: var(--antique-gold);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1;
+  animation: float 4s ease-in-out infinite;
 }
 
-/* Parents */
-.couple-parents {
-  font-family: var(--font-arabic);
-  font-size: var(--fs-body-ar);
+.couple-tagline {
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
   color: var(--text-muted);
-  direction: rtl;
-  text-align: center;
-  line-height: var(--lh-arabic);
+  font-style: italic;
   margin-top: var(--space-lg);
-}
-
-/* Nikah text */
-.couple-nikah {
-  font-family: var(--font-arabic);
-  font-size: var(--fs-body-ar);
-  color: var(--text-secondary);
-  direction: rtl;
-  text-align: center;
-  line-height: var(--lh-arabic);
-  margin-top: var(--space-lg);
-  padding: var(--space-lg) var(--space-sm);
-  border-top: 1px solid var(--gold-muted);
-  border-bottom: 1px solid var(--gold-muted);
+  letter-spacing: var(--ls-normal);
 }
 
 /* =========================================
    SCENE 4: DETAILS (Pure Typography)
-   The Date: Large 23, Hijri, Time & Location
+   The Date: Large 23, Time & Location
    ========================================= */
 .scene-details {
-  background: var(--parchment);
+  background: linear-gradient(180deg, var(--parchment) 0%, var(--parchment-dark) 100%);
 }
 
 .details-composition {
@@ -366,12 +382,13 @@
 
 .detail-month {
   display: block;
-  font-family: var(--font-body);
+  font-family: var(--font-ui);
   font-size: var(--fs-subtitle);
   color: var(--text-secondary);
   letter-spacing: var(--ls-ultra);
   text-transform: uppercase;
   margin-top: var(--space-xs);
+  font-weight: 400;
 }
 
 .detail-year {
@@ -383,14 +400,6 @@
   margin-bottom: var(--space-xs);
 }
 
-.detail-hijri {
-  display: block;
-  font-family: var(--font-arabic);
-  font-size: var(--fs-small);
-  color: var(--text-muted);
-  direction: rtl;
-}
-
 .detail-divider {
   height: 1px;
   max-width: 80px;
@@ -400,12 +409,13 @@
 
 .detail-text {
   display: block;
-  font-family: var(--font-body);
-  font-size: var(--fs-body);
+  font-family: var(--font-ui);
+  font-size: var(--fs-small);
   color: var(--text-secondary);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
   margin-bottom: var(--space-xs);
+  font-weight: 400;
 }
 
 .detail-venue-name {
@@ -427,20 +437,21 @@
 }
 
 /* =========================================
-   SCENE 5: COUNTDOWN
-   Elegant typographic numbers with pop ticks.
+   SCENE 5: COUNTDOWN — Glass Cards
+   Elegant typographic numbers inside glass panels.
    ========================================= */
 .scene-countdown {
   background: var(--ivory);
 }
 
 .countdown-label-text {
-  font-family: var(--font-body);
+  font-family: var(--font-ui);
   font-size: var(--fs-label);
   color: var(--text-muted);
   letter-spacing: var(--ls-ultra);
   text-transform: uppercase;
   margin-bottom: var(--space-xl);
+  font-weight: 500;
 }
 
 .countdown-grid {
@@ -453,6 +464,18 @@
 
 .countdown-unit { text-align: center; }
 
+.countdown-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-xs);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 8px;
+  transition: transform 0.3s var(--ease-out);
+}
+
 .countdown-number {
   display: block;
   font-family: var(--font-display);
@@ -460,16 +483,16 @@
   font-weight: 600;
   color: var(--antique-gold);
   line-height: var(--lh-none);
-  margin-bottom: 6px;
 }
 
 .countdown-unit-label {
   display: block;
-  font-family: var(--font-body);
+  font-family: var(--font-ui);
   font-size: var(--fs-countdown-label);
   color: var(--text-faint);
   letter-spacing: var(--ls-ultra);
   text-transform: uppercase;
+  font-weight: 500;
 }
 
 .countdown-msg {
@@ -482,10 +505,10 @@
 
 /* =========================================
    SCENE 6: VENUE
-   Hussaini Baug Camp Pune, map & directions.
+   Map & directions with elevated styling.
    ========================================= */
 .scene-venue {
-  background: var(--parchment);
+  background: linear-gradient(180deg, var(--parchment) 0%, var(--ivory) 100%);
 }
 
 .venue-name {
@@ -542,7 +565,7 @@
 
 .rsvp-form.show {
   display: block;
-  animation: fadeIn 0.6s var(--ease-out);
+  animation: fadeInUp 0.6s var(--ease-out);
 }
 
 .rsvp-form .form-group { margin-bottom: var(--space-sm); }
@@ -556,20 +579,21 @@
 
 .rsvp-response.show {
   display: block;
-  animation: fadeIn 0.6s var(--ease-out);
+  animation: fadeInUp 0.6s var(--ease-out);
 }
 
 .rsvp-response-icon {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   margin-bottom: var(--space-sm);
+  animation: float 3s ease-in-out infinite;
 }
 
 /* =========================================
    SCENE 8: CLOSING BLESSINGS & SHARE
-   Emotional farewell, Islamic benediction & sharing.
+   Elegant farewell & sharing.
    ========================================= */
 .scene-closing {
-  background: var(--parchment);
+  background: linear-gradient(180deg, var(--parchment) 0%, var(--parchment-dark) 100%);
   padding-bottom: var(--space-3xl);
 }
 
@@ -593,11 +617,12 @@
 }
 
 .closing-date {
-  font-family: var(--font-body);
-  font-size: var(--fs-body);
+  font-family: var(--font-ui);
+  font-size: var(--fs-small);
   color: var(--text-muted);
   letter-spacing: var(--ls-wide);
   margin-bottom: 4px;
+  font-weight: 400;
 }
 
 .closing-venue {
@@ -605,21 +630,23 @@
   font-size: var(--fs-small);
   color: var(--text-faint);
   letter-spacing: var(--ls-normal);
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-md);
 }
 
-.closing-wassalam {
-  font-family: var(--font-arabic);
-  font-size: var(--fs-body-ar-lg);
+.closing-warm-wish {
+  font-family: var(--font-display);
+  font-size: var(--fs-body);
   color: var(--antique-gold);
-  direction: rtl;
+  font-style: italic;
+  margin-bottom: var(--space-xl);
+  letter-spacing: var(--ls-normal);
 }
 
 /* Share area */
 .closing-share {
   padding-top: var(--space-xl);
-  border-top: 1px solid var(--gold-muted);
-  margin-top: var(--space-xl);
+  border-top: 1px solid var(--glass-border);
+  margin-top: var(--space-lg);
 }
 
 .closing-share-text {
@@ -637,9 +664,10 @@
 }
 
 .closing-credit {
-  font-family: var(--font-body);
+  font-family: var(--font-ui);
   font-size: var(--fs-xs);
   color: var(--text-faint);
   margin-top: var(--space-2xl);
-  opacity: 0.45;
+  opacity: 0.4;
+  font-weight: 400;
 }

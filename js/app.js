@@ -1,6 +1,7 @@
 /* ============================================
-   APP.JS — Cinematic Video Intro & Experience
-   Video Lifecycle, Audio Toggle, Ambient Dust, Scroll Reveals
+   APP.JS — Cinematic Video Intro & Premium Experience
+   Video Lifecycle, Audio Toggle, Ambient Particles,
+   Scroll Reveals, Parallax, & Micro-interactions
    ============================================ */
 
 (function() {
@@ -46,7 +47,7 @@
         playPromise.then(() => {
           revealVideo();
         }).catch(() => {
-          // Autoplay was blocked (e.g. Low Power Mode): poster remains visible as graceful fallback
+          // Autoplay was blocked: poster remains visible as graceful fallback
           console.log('Autoplay muted deferred — poster active');
         });
       }
@@ -55,7 +56,7 @@
     video.addEventListener('playing', revealVideo);
     video.addEventListener('canplay', revealVideo);
 
-    // Fallback: if video takes too long or fails, keep poster and allow full interaction
+    // Fallback: if video takes too long or fails, keep poster
     video.addEventListener('error', () => {
       console.log('Video load notice: falling back to high-res poster artwork.');
       if (poster) poster.classList.remove('fade-out');
@@ -106,7 +107,7 @@
         replayBtn.style.display = 'inline-flex';
       }
 
-      // If user hasn't scrolled yet after 1.8s, smoothly hint to next section
+      // If user hasn't scrolled yet after 1.6s, smoothly hint to next section
       setTimeout(() => {
         const scrollY = window.pageYOffset || document.documentElement.scrollTop;
         if (scrollY < 80) {
@@ -160,7 +161,7 @@
 
   // ===== 3. Scroll Reveal via IntersectionObserver =====
   function initScrollReveal() {
-    const targets = document.querySelectorAll('.reveal, .reveal-slow, .reveal-scale, .line-expand');
+    const targets = document.querySelectorAll('.reveal, .reveal-slow, .reveal-scale, .reveal-blur, .reveal-left, .reveal-right, .line-expand');
     if (!('IntersectionObserver' in window)) {
       targets.forEach(el => el.classList.add('visible'));
       return;
@@ -194,7 +195,7 @@
     let isTabActive = true;
 
     // Lightweight count for silky 60fps on mobile
-    const count = window.innerWidth < 480 ? 14 : 22;
+    const count = window.innerWidth < 480 ? 18 : 28;
 
     function resize() {
       canvas.width = window.innerWidth;
@@ -205,14 +206,14 @@
       return {
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        radius: Math.random() * 2 + 0.6,
-        vy: -(Math.random() * 0.22 + 0.08),
-        vx: (Math.random() - 0.5) * 0.15,
-        opacity: Math.random() * 0.45 + 0.1,
-        dOpacity: (Math.random() - 0.5) * 0.005,
-        hue: 38 + Math.random() * 12,
-        sat: 65 + Math.random() * 20,
-        light: 58 + Math.random() * 12
+        radius: Math.random() * 2.2 + 0.5,
+        vy: -(Math.random() * 0.25 + 0.06),
+        vx: (Math.random() - 0.5) * 0.18,
+        opacity: Math.random() * 0.5 + 0.08,
+        dOpacity: (Math.random() - 0.5) * 0.006,
+        hue: 36 + Math.random() * 16,
+        sat: 60 + Math.random() * 25,
+        light: 55 + Math.random() * 18
       };
     }
 
@@ -232,14 +233,14 @@
         p.x += p.vx;
         p.opacity += p.dOpacity;
 
-        if (p.opacity <= 0.05 || p.opacity >= 0.55) {
+        if (p.opacity <= 0.04 || p.opacity >= 0.58) {
           p.dOpacity = -p.dOpacity;
         }
 
         if (p.y < -10 || p.x < -10 || p.x > canvas.width + 10) {
           p.y = canvas.height + 10;
           p.x = Math.random() * canvas.width;
-          p.opacity = 0.1;
+          p.opacity = 0.08;
         }
 
         ctx.beginPath();
@@ -277,11 +278,70 @@
     draw();
   }
 
+  // ===== 5. Subtle Parallax on Scroll =====
+  function initParallax() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const parallaxElements = document.querySelectorAll('.parallax-slow');
+    if (parallaxElements.length === 0) return;
+
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+          parallaxElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            const speed = 0.05;
+            const offset = (rect.top * speed);
+            el.style.transform = `translateY(${offset}px)`;
+          });
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  // ===== 6. Staggered Reveal for Child Elements =====
+  function initStaggeredReveals() {
+    const staggerContainers = document.querySelectorAll('.invitation-card, .couple-showcase');
+    if (!('IntersectionObserver' in window)) return;
+
+    staggerContainers.forEach(container => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const children = entry.target.children;
+            Array.from(children).forEach((child, i) => {
+              child.style.opacity = '0';
+              child.style.transform = 'translateY(15px)';
+              child.style.transition = `opacity 0.8s var(--ease-out) ${i * 0.12}s, transform 0.8s var(--ease-out) ${i * 0.12}s`;
+              
+              requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                  child.style.opacity = '1';
+                  child.style.transform = 'translateY(0)';
+                });
+              });
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      observer.observe(container);
+    });
+  }
+
   // ===== Initialize Everything =====
   document.addEventListener('DOMContentLoaded', () => {
     initHeroVideo();
     initScrollReveal();
     initParticles();
+    initParallax();
+    initStaggeredReveals();
 
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(() => {

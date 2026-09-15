@@ -66,7 +66,7 @@
     btnDeclineWhatsapp.addEventListener('click', () => {
       const text = encodeURIComponent(
         `🌙 *Wedding Greetings for Husain & Fatema*\n\n` +
-        `Warmest congratulations to both families on this blessed union. Regretfully I may not be able to attend in person, but my heartfelt prayers and best wishes are with the couple!`
+        `Warmest congratulations to both families on this beautiful union. Regretfully I may not be able to attend in person, but my heartfelt prayers and best wishes are with the couple!`
       );
       window.open(`https://wa.me/${RSVP_PHONE}?text=${text}`, '_blank', 'noopener,noreferrer');
     });
